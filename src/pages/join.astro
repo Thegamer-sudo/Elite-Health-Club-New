@@ -1,0 +1,478 @@
+---
+import Main from '../layouts/Main.astro';
+---
+
+<Main>
+  <!-- Hero Section -->
+  <section class="min-h-[50vh] flex items-center justify-center bg-gradient-to-b from-black to-darker-bg pt-20">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="font-montserrat font-black text-4xl md:text-5xl lg:text-6xl uppercase mb-4 text-gold">
+        Official Membership Plans
+      </h1>
+      <p class="text-text-light text-xl md:text-2xl">Transparent pricing. No surprises.</p>
+    </div>
+  </section>
+
+  <!-- Branch Selection Tabs -->
+  <section class="py-12 bg-darker-bg">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-8">
+        <h2 class="font-montserrat font-bold text-3xl text-text-light mb-6">
+          Choose Your Membership
+        </h2>
+        
+                <!-- Branch Tabs - Clean Design -->
+        <div class="flex justify-center mb-8">
+          <div class="relative bg-black/50 border border-gold/30 rounded-full p-1 inline-flex">
+            <!-- Sliding background -->
+            <div class="branch-slider absolute h-[calc(100%-8px)] w-[calc(50%-4px)] bg-gold/20 rounded-full transition-all duration-300"
+                 id="branch-slider"></div>
+            
+            <!-- Overport Button -->
+            <button class="branch-tab relative z-10 px-8 py-3 rounded-full font-semibold transition-all duration-300 text-center min-w-[140px]"
+                    data-branch="overport">
+              <i class="fas fa-building mr-2"></i>Overport
+            </button>
+            
+            <!-- Merebank Button -->
+            <button class="branch-tab relative z-10 px-8 py-3 rounded-full font-semibold transition-all duration-300 text-center min-w-[140px]"
+                    data-branch="merebank">
+              <i class="fas fa-store mr-2"></i>Merebank Plaza
+            </button>
+          </div>
+        </div>
+
+        <!-- Branch Description -->
+        <div class="text-text-light mb-8">
+          <p>
+            <i class="fas fa-map-marker-alt text-gold mr-2"></i>
+            <strong id="branch-location">Level 3 – The Spark Lifestyle Centre, 98 Cannon Avenue, Overport, Durban</strong>
+          </p>
+        </div>
+
+        <!-- Booking Info -->
+        <div class="bg-gold/10 border border-gold/30 rounded-lg p-4 max-w-2xl mx-auto mb-8">
+          <p class="text-text-light">
+            <i class="fas fa-info-circle text-gold mr-2"></i>
+            <strong>Visit First, Pay Later:</strong> Book a gym tour and see our premium facilities before committing
+          </p>
+        </div>
+      </div>
+
+          <!-- Overport Pricing (Default Visible) -->
+      <div id="overport-pricing" class="branch-pricing active">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- General Membership -->
+          <div class="membership-card bg-darker-bg border-2 border-gold/30 rounded-xl p-6 text-center hover:border-gold transition-all hover:-translate-y-2">
+            <h3 class="text-gold font-bold text-xl mb-4">GENERAL</h3>
+            <div class="text-4xl font-bold text-text-light mb-2">R350<span class="text-lg text-text-muted">/month</span></div>
+            <ul class="space-y-3 mb-6">
+              <li class="text-text-light border-b border-white/10 pb-2">Full gym access</li>
+              <li class="text-text-light border-b border-white/10 pb-2">All equipment included</li>
+              <li class="text-text-light border-b border-white/10 pb-2">Locker room facilities</li>
+              <li class="text-text-light">Free parking</li>
+            </ul>
+            <button class="choose-plan-btn w-full border-2 border-gold text-gold py-3 rounded-lg hover:bg-gold hover:text-dark-bg transition-colors"
+                    data-plan="GENERAL - OVERPORT">
+              Choose General
+            </button>
+          </div>
+
+          <!-- Debit Order Membership -->
+          <div class="membership-card bg-darker-bg border-2 border-gold/30 rounded-xl p-6 text-center hover:border-gold transition-all hover:-translate-y-2">
+            <h3 class="text-gold font-bold text-xl mb-4">DEBIT ORDER</h3>
+            <div class="text-4xl font-bold text-text-light mb-2">R250<span class="text-lg text-text-muted">/month</span></div>
+            <ul class="space-y-3 mb-6">
+              <li class="text-text-light border-b border-white/10 pb-2">All General benefits</li>
+              <li class="text-text-light border-b border-white/10 pb-2">Convenient monthly debit</li>
+              <li class="text-text-light border-b border-white/10 pb-2">No price increases</li>
+              <li class="text-text-light">Easy cancellation</li>
+            </ul>
+            <button class="choose-plan-btn w-full border-2 border-gold text-gold py-3 rounded-lg hover:bg-gold hover:text-dark-bg transition-colors"
+                    data-plan="DEBIT ORDER - OVERPORT">
+              Choose Debit
+            </button>
+          </div>
+
+          <!-- Student Membership -->
+          <div class="membership-card bg-darker-bg border-2 border-gold/30 rounded-xl p-6 text-center hover:border-gold transition-all hover:-translate-y-2">
+            <h3 class="text-gold font-bold text-xl mb-4">STUDENT</h3>
+            <div class="text-4xl font-bold text-text-light mb-2">R200<span class="text-lg text-text-muted">/month</span></div>
+            <ul class="space-y-3 mb-6">
+              <li class="text-text-light border-b border-white/10 pb-2">Special student pricing</li>
+              <li class="text-text-light border-b border-white/10 pb-2">Debit order available</li>
+              <li class="text-text-light border-b border-white/10 pb-2">Valid student ID required</li>
+              <li class="text-text-light">All gym access included</li>
+            </ul>
+            <button class="choose-plan-btn w-full border-2 border-gold text-gold py-3 rounded-lg hover:bg-gold hover:text-dark-bg transition-colors"
+                    data-plan="STUDENT - OVERPORT">
+              Choose Student
+            </button>
+          </div>
+
+          <!-- Pensioner Membership -->
+          <div class="membership-card bg-darker-bg border-2 border-gold/30 rounded-xl p-6 text-center hover:border-gold transition-all hover:-translate-y-2">
+            <h3 class="text-gold font-bold text-xl mb-4">PENSIONER</h3>
+            <div class="text-4xl font-bold text-text-light mb-2">R250<span class="text-lg text-text-muted">/month</span></div>
+            <ul class="space-y-3 mb-6">
+              <li class="text-text-light border-b border-white/10 pb-2">Special pensioner rate</li>
+              <li class="text-text-light border-b border-white/10 pb-2">General membership benefits</li>
+              <li class="text-text-light border-b border-white/10 pb-2">Peaceful training environment</li>
+              <li class="text-text-light">Senior-friendly equipment</li>
+            </ul>
+            <button class="choose-plan-btn w-full border-2 border-gold text-gold py-3 rounded-lg hover:bg-gold hover:text-dark-bg transition-colors"
+                    data-plan="PENSIONER - OVERPORT">
+              Choose Pensioner
+            </button>
+          </div>
+
+          <!-- 6 Month Package -->
+          <div class="membership-card bg-darker-bg border-2 border-gold/30 rounded-xl p-6 text-center hover:border-gold transition-all hover:-translate-y-2">
+            <h3 class="text-gold font-bold text-xl mb-4">6 MONTH PACKAGE</h3>
+            <div class="text-4xl font-bold text-text-light mb-2">R1,500<span class="text-lg text-text-muted">/once off</span></div>
+            <ul class="space-y-3 mb-6">
+              <li class="text-text-light border-b border-white/10 pb-2">6 months full access</li>
+              <li class="text-text-light border-b border-white/10 pb-2">Save R300 total</li>
+              <li class="text-text-light border-b border-white/10 pb-2">No monthly payments</li>
+              <li class="text-text-light">Perfect commitment package</li>
+            </ul>
+            <button class="choose-plan-btn w-full border-2 border-gold text-gold py-3 rounded-lg hover:bg-gold hover:text-dark-bg transition-colors"
+                    data-plan="6 MONTH PACKAGE - OVERPORT">
+              Choose 6 Months
+            </button>
+          </div>
+
+          <!-- Family Membership -->
+          <div class="membership-card bg-darker-bg border-2 border-gold/30 rounded-xl p-6 text-center hover:border-gold transition-all hover:-translate-y-2">
+            <h3 class="text-gold font-bold text-xl mb-4">FAMILY PACKAGE</h3>
+            <div class="text-4xl font-bold text-text-light mb-2">R800<span class="text-lg text-text-muted">/month</span></div>
+            <ul class="space-y-3 mb-6">
+              <li class="text-text-light border-b border-white/10 pb-2">Minimum 4 family members</li>
+              <li class="text-text-light border-b border-white/10 pb-2">Massive family savings</li>
+              <li class="text-text-light border-b border-white/10 pb-2">All individual benefits</li>
+              <li class="text-text-light">Perfect for households</li>
+            </ul>
+            <button class="choose-plan-btn w-full border-2 border-gold text-gold py-3 rounded-lg hover:bg-gold hover:text-dark-bg transition-colors"
+                    data-plan="FAMILY PACKAGE - OVERPORT">
+              Choose Family
+            </button>
+          </div>
+        </div>
+
+        <!-- Joining Fee Notice -->
+        <div class="mt-8 text-center">
+          <div class="bg-darker-bg border-2 border-gold rounded-xl p-6 max-w-2xl mx-auto">
+            <h4 class="text-gold text-xl font-bold mb-3">Important Membership Information</h4>
+            <p class="text-text-light mb-2">
+              <strong>All new members require a <span class="text-gold">R400 Joining Fee</span></strong>
+            </p>
+            <p class="text-text-light text-sm">
+              Your first payment will be: <strong>R400 Joining Fee + Your Chosen Monthly Rate</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+
+            <!-- Merebank Pricing (Hidden by Default) -->
+      <div id="merebank-pricing" class="branch-pricing hidden">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Merebank General Membership -->
+          <div class="membership-card bg-darker-bg border-2 border-gold/30 rounded-xl p-6 text-center hover:border-gold transition-all hover:-translate-y-2">
+            <h3 class="text-gold font-bold text-xl mb-4">GENERAL</h3>
+            <div class="text-4xl font-bold text-text-light mb-2">R300<span class="text-lg text-text-muted">/month</span></div>
+            <ul class="space-y-3 mb-6">
+              <li class="text-text-light border-b border-white/10 pb-2">Full gym access</li>
+              <li class="text-text-light border-b border-white/10 pb-2">All equipment included</li>
+              <li class="text-text-light border-b border-white/10 pb-2">Locker room facilities</li>
+              <li class="text-text-light">Free parking</li>
+            </ul>
+            <button class="choose-plan-btn w-full border-2 border-gold text-gold py-3 rounded-lg hover:bg-gold hover:text-dark-bg transition-colors"
+                    data-plan="GENERAL - MEREBANK">
+              Choose General
+            </button>
+          </div>
+
+          <!-- Merebank Debit Membership -->
+          <div class="membership-card bg-darker-bg border-2 border-gold/30 rounded-xl p-6 text-center hover:border-gold transition-all hover:-translate-y-2">
+            <h3 class="text-gold font-bold text-xl mb-4">DEBIT ORDER</h3>
+            <div class="text-4xl font-bold text-text-light mb-2">R200<span class="text-lg text-text-muted">/month</span></div>
+            <ul class="space-y-3 mb-6">
+              <li class="text-text-light border-b border-white/10 pb-2">All General benefits</li>
+              <li class="text-text-light border-b border-white/10 pb-2">Convenient monthly debit</li>
+              <li class="text-text-light border-b border-white/10 pb-2">No price increases</li>
+              <li class="text-text-light">Easy cancellation</li>
+            </ul>
+            <button class="choose-plan-btn w-full border-2 border-gold text-gold py-3 rounded-lg hover:bg-gold hover:text-dark-bg transition-colors"
+                    data-plan="DEBIT ORDER - MEREBANK">
+              Choose Debit
+            </button>
+          </div>
+
+          <!-- Merebank Student Membership -->
+          <div class="membership-card bg-darker-bg border-2 border-gold/30 rounded-xl p-6 text-center hover:border-gold transition-all hover:-translate-y-2">
+            <h3 class="text-gold font-bold text-xl mb-4">STUDENT</h3>
+            <div class="text-4xl font-bold text-text-light mb-2">R150<span class="text-lg text-text-muted">/month</span></div>
+            <ul class="space-y-3 mb-6">
+              <li class="text-text-light border-b border-white/10 pb-2">Special student pricing</li>
+              <li class="text-text-light border-b border-white/10 pb-2">Debit order only</li>
+              <li class="text-text-light border-b border-white/10 pb-2">Valid student ID required</li>
+              <li class="text-text-light">All gym access included</li>
+            </ul>
+            <button class="choose-plan-btn w-full border-2 border-gold text-gold py-3 rounded-lg hover:bg-gold hover:text-dark-bg transition-colors"
+                    data-plan="STUDENT - MEREBANK">
+              Choose Student
+            </button>
+          </div>
+
+          <!-- Merebank 6 Month Package -->
+          <div class="membership-card bg-darker-bg border-2 border-gold/30 rounded-xl p-6 text-center hover:border-gold transition-all hover:-translate-y-2">
+            <h3 class="text-gold font-bold text-xl mb-4">6 MONTH PACKAGE</h3>
+            <div class="text-4xl font-bold text-text-light mb-2">R1,200<span class="text-lg text-text-muted">/once off</span></div>
+            <ul class="space-y-3 mb-6">
+              <li class="text-text-light border-b border-white/10 pb-2">6 months full access</li>
+              <li class="text-text-light border-b border-white/10 pb-2">Best value package</li>
+              <li class="text-text-light border-b border-white/10 pb-2">No monthly payments</li>
+              <li class="text-text-light">Perfect commitment package</li>
+            </ul>
+            <button class="choose-plan-btn w-full border-2 border-gold text-gold py-3 rounded-lg hover:bg-gold hover:text-dark-bg transition-colors"
+                    data-plan="6 MONTH PACKAGE - MEREBANK">
+              Choose 6 Months
+            </button>
+          </div>
+
+          <!-- Merebank Family Package -->
+          <div class="membership-card bg-darker-bg border-2 border-gold/30 rounded-xl p-6 text-center hover:border-gold transition-all hover:-translate-y-2">
+            <h3 class="text-gold font-bold text-xl mb-4">FAMILY PACKAGE</h3>
+            <div class="text-4xl font-bold text-text-light mb-2">R600<span class="text-lg text-text-muted">/month</span></div>
+            <ul class="space-y-3 mb-6">
+              <li class="text-text-light border-b border-white/10 pb-2">2 Adults + 2 Children</li>
+              <li class="text-text-light border-b border-white/10 pb-2">Massive family savings</li>
+              <li class="text-text-light border-b border-white/10 pb-2">All individual benefits</li>
+              <li class="text-text-light">Perfect for households</li>
+            </ul>
+            <button class="choose-plan-btn w-full border-2 border-gold text-gold py-3 rounded-lg hover:bg-gold hover:text-dark-bg transition-colors"
+                    data-plan="FAMILY PACKAGE - MEREBANK">
+              Choose Family
+            </button>
+          </div>
+
+          <!-- Empty card for spacing (optional) -->
+          <div class="hidden lg:block"></div>
+        </div>
+
+        <!-- Card Fee Notice for Merebank -->
+        <div class="mt-8 text-center">
+          <div class="bg-darker-bg border-2 border-gold rounded-xl p-6 max-w-2xl mx-auto">
+            <h4 class="text-gold text-xl font-bold mb-3">Important Membership Information</h4>
+            <p class="text-text-light mb-2">
+              <strong>All new members require a <span class="text-gold">R100 Card Fee</span></strong>
+            </p>
+            <p class="text-text-light text-sm">
+              Your first payment will be: <strong>R100 Card Fee + Your Chosen Monthly Rate</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+
+            <!-- Day Pass -->
+      <div class="mt-12 text-center">
+        <div class="bg-darker-bg border-2 border-gold/30 rounded-xl p-8 max-w-md mx-auto">
+          <h3 class="text-gold text-2xl font-bold mb-4">DAY PASS</h3>
+          <div class="text-5xl font-bold text-gold mb-4">R50</div>
+          <p class="text-text-light mb-6">Try our facilities for a day</p>
+          <button class="choose-plan-btn border-2 border-gold text-gold px-8 py-3 rounded-lg hover:bg-gold hover:text-dark-bg transition-colors"
+                  data-plan="DAY PASS">
+            Get Day Pass
+          </button>
+        </div>
+        
+        <!-- Small notice -->
+        <p class="text-text-muted text-sm mt-6">
+          <i class="fas fa-info-circle mr-1"></i>
+          All memberships subject to standard terms and conditions
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Operating Hours Section -->
+  <section class="py-12 bg-black">
+    <div class="container mx-auto px-4">
+      <h2 class="font-montserrat font-bold text-3xl text-text-light text-center mb-8">
+        Operating Hours
+      </h2>
+      
+      <div class="max-w-md mx-auto">
+        <div class="bg-darker-bg border-2 border-gold/30 rounded-xl p-6">
+          <!-- Monday - Thursday -->
+          <div class="flex justify-between items-center py-4 border-b border-white/10">
+            <span class="text-text-light font-medium">Monday - Thursday</span>
+            <span class="text-gold font-semibold">05:00 - 21:00</span>
+          </div>
+          
+          <!-- Friday -->
+          <div class="flex justify-between items-center py-4 border-b border-white/10">
+            <span class="text-text-light font-medium">Friday</span>
+            <span class="text-gold font-semibold">05:00 - 20:00</span>
+          </div>
+          
+          <!-- Saturday -->
+          <div class="flex justify-between items-center py-4 border-b border-white/10">
+            <span class="text-text-light font-medium">Saturday</span>
+            <span class="text-gold font-semibold">06:00 - 16:00</span>
+          </div>
+          
+          <!-- Sunday -->
+          <div class="flex justify-between items-center py-4 border-b border-white/10">
+            <span class="text-text-light font-medium">Sunday</span>
+            <span class="text-gold font-semibold">06:00 - 14:00</span>
+          </div>
+          
+          <!-- Public Holidays -->
+          <div class="flex justify-between items-center py-4 bg-gold/10 -mx-6 -mb-6 px-6 rounded-b-xl">
+            <span class="text-text-light font-medium">Public Holidays</span>
+            <span class="text-gold font-semibold">06:00 - 14:00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Main>
+
+<style>
+  /* Branch Tabs Styling */
+  .branch-tab {
+    color: rgba(212, 175, 55, 0.7);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .branch-tab.active {
+    color: #f8f9fa; /* White text for active */
+  }
+  
+  .branch-pricing {
+    transition: all 0.3s ease;
+  }
+  
+  .branch-pricing.hidden {
+    display: none;
+  }
+  
+  .branch-pricing.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+    /* Smooth transitions */
+  .membership-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .membership-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.15);
+  }
+  
+  /* Button hover effects */
+  .choose-plan-btn {
+    transition: all 0.3s ease;
+  }
+  
+  .choose-plan-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+  }
+</style>
+
+<script is:inline>
+  // Branch switching functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const tabs = document.querySelectorAll('.branch-tab');
+    const locationText = document.getElementById('branch-location');
+    const slider = document.getElementById('branch-slider');
+    
+    // Initialize slider position
+    slider.style.transform = 'translateX(4px)';
+    tabs[0].classList.add('active');
+    
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function() {
+        const branch = this.getAttribute('data-branch');
+        const isOverport = branch === 'overport';
+        
+        // Move slider
+        if (isOverport) {
+          slider.style.transform = 'translateX(4px)';
+        } else {
+          slider.style.transform = 'translateX(calc(100% + 4px))';
+        }
+        
+        // Update active tab
+        tabs.forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+        
+        // Show correct pricing
+        const overportPricing = document.getElementById('overport-pricing');
+        const merebankPricing = document.getElementById('merebank-pricing');
+        
+        if (isOverport) {
+          overportPricing.classList.remove('hidden');
+          overportPricing.classList.add('active');
+          merebankPricing.classList.remove('active');
+          setTimeout(() => merebankPricing.classList.add('hidden'), 300);
+        } else {
+          merebankPricing.classList.remove('hidden');
+          merebankPricing.classList.add('active');
+          overportPricing.classList.remove('active');
+          setTimeout(() => overportPricing.classList.add('hidden'), 300);
+        }
+        
+        // Update location text
+        locationText.textContent = isOverport 
+          ? 'Level 3 – The Spark Lifestyle Centre, 98 Cannon Avenue, Overport, Durban'
+          : 'Merebank Plaza, 50 Bombay Walk, Merebank, Durban';
+      });
+    });
+    
+    // FIXED: Chatbot integration for plan selection
+    const planButtons = document.querySelectorAll('.choose-plan-btn');
+    
+    planButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const plan = this.getAttribute('data-plan');
+        
+        // Get current branch from active tab
+        const activeTab = document.querySelector('.branch-tab.active');
+        const branch = activeTab ? activeTab.getAttribute('data-branch') : 'overport';
+        const branchUpper = branch.toUpperCase();
+        
+        // Format: "FAMILY PACKAGE - OVERPORT"
+        const fullPlanName = `${plan.split(' - ')[0]} - ${branchUpper}`;
+        
+        // Trigger chatbot
+        if (window.eliteChatbot && window.eliteChatbot.handlePackageSelection) {
+          window.eliteChatbot.handlePackageSelection(fullPlanName, branchUpper);
+        } else {
+          // Fallback: Open chatbot and show message
+          const container = document.getElementById('chatbot-container');
+          const toggle = document.getElementById('chatbot-toggle');
+          
+          if (container) {
+            container.style.display = 'flex';
+            container.classList.remove('hidden');
+          }
+          
+          // Show alert as last resort
+          alert(`Selected: ${fullPlanName}\nChatbot should open. If not, refresh page.`);
+        }
+      });
+    });
+  });
+</script>

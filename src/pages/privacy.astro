@@ -1,0 +1,165 @@
+---
+import Main from '../layouts/Main.astro';
+---
+
+<Main>
+  <!-- Hero Section -->
+  <section class="min-h-[40vh] flex items-center justify-center bg-gradient-to-b from-black to-darker-bg pt-20">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="font-montserrat font-black text-4xl md:text-5xl lg:text-6xl uppercase mb-4 text-gold">
+        Privacy Policy
+      </h1>
+      <p class="text-text-light text-xl md:text-2xl">Protecting Your Personal Information</p>
+    </div>
+  </section>
+
+  <!-- Policy Content -->
+  <section class="py-16 bg-transparent">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="bg-black border-2 border-gold rounded-xl p-8 md:p-12 relative overflow-hidden">
+          <!-- Decorative top border -->
+          <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold to-transparent"></div>
+          
+          <!-- Section 1 -->
+          <div class="mb-12">
+            <h2 class="text-gold text-2xl font-bold mb-6 border-l-4 border-gold pl-4">1. Information We Collect</h2>
+            <p class="text-text-light mb-4">
+              We collect personal information that you provide when joining Elite Health Club, including:
+            </p>
+            <ul class="text-text-light space-y-2 pl-6">
+              <li class="flex items-start">
+                <span class="text-gold mr-2">▸</span>
+                Full name and contact details
+              </li>
+              <li class="flex items-start">
+                <span class="text-gold mr-2">▸</span>
+                Identity number for membership verification
+              </li>
+              <li class="flex items-start">
+                <span class="text-gold mr-2">▸</span>
+                Emergency contact information
+              </li>
+              <li class="flex items-start">
+                <span class="text-gold mr-2">▸</span>
+                Payment information for membership fees
+              </li>
+              <li class="flex items-start">
+                <span class="text-gold mr-2">▸</span>
+                Health information relevant to your training
+              </li>
+            </ul>
+          </div>
+
+          <!-- Section 2 -->
+          <div class="mb-12">
+            <h2 class="text-gold text-2xl font-bold mb-6 border-l-4 border-gold pl-4">2. How We Use Your Information</h2>
+            <p class="text-text-light mb-4">
+              Your information is used to:
+            </p>
+            <ul class="text-text-light space-y-2 pl-6">
+              <li class="flex items-start">
+                <span class="text-gold mr-2">▸</span>
+                Process your membership and manage your account
+              </li>
+              <li class="flex items-start">
+                <span class="text-gold mr-2">▸</span>
+                Provide personalized training services
+              </li>
+              <li class="flex items-start">
+                <span class="text-gold mr-2">▸</span>
+                Communicate important club updates
+              </li>
+              <li class="flex items-start">
+                <span class="text-gold mr-2">▸</span>
+                Ensure your safety and emergency contact
+              </li>
+              <li class="flex items-start">
+                <span class="text-gold mr-2">▸</span>
+                Process payments and send receipts
+              </li>
+            </ul>
+          </div>
+
+          <!-- Section 3 -->
+          <div class="mb-12">
+            <h2 class="text-gold text-2xl font-bold mb-6 border-l-4 border-gold pl-4">3. Data Protection</h2>
+            <p class="text-text-light">
+              We implement security measures to protect your personal information against 
+              unauthorized access, alteration, or disclosure. Your data is stored securely 
+              and accessed only by authorized staff.
+            </p>
+          </div>
+
+          <!-- Section 4 -->
+          <div class="mb-12">
+            <h2 class="text-gold text-2xl font-bold mb-6 border-l-4 border-gold pl-4">4. Your Rights</h2>
+            <p class="text-text-light mb-4">
+              You have the right to:
+            </p>
+            <ul class="text-text-light space-y-2 pl-6">
+              <li class="flex items-start">
+                <span class="text-gold mr-2">▸</span>
+                Access your personal information we hold
+              </li>
+              <li class="flex items-start">
+                <span class="text-gold mr-2">▸</span>
+                Request correction of inaccurate data
+              </li>
+              <li class="flex items-start">
+                <span class="text-gold mr-2">▸</span>
+                Request deletion of your personal data
+              </li>
+              <li class="flex items-start">
+                <span class="text-gold mr-2">▸</span>
+                Object to processing of your personal data
+              </li>
+              <li class="flex items-start">
+                <span class="text-gold mr-2">▸</span>
+                Withdraw consent at any time
+              </li>
+            </ul>
+          </div>
+
+          <!-- Section 5 -->
+          <div class="mb-12">
+            <h2 class="text-gold text-2xl font-bold mb-6 border-l-4 border-gold pl-4">5. Contact Us</h2>
+            <p class="text-text-light mb-4">
+              For any privacy-related questions or to exercise your rights:
+            </p>
+            <div class="bg-gold/10 border border-gold/30 rounded-lg p-6">
+              <p class="text-text-light mb-2">
+                <strong class="text-gold">Email:</strong> info@elitehealthclub.co.za
+              </p>
+              <p class="text-text-light mb-2">
+                <strong class="text-gold">Phone:</strong> +27 65 517-2764
+              </p>
+              <p class="text-text-light">
+                <strong class="text-gold">Address:</strong> Level 3 – The Spark Lifestyle Centre, 98 Cannon Avenue, Overport, Durban
+              </p>
+            </div>
+          </div>
+
+          <!-- Update Notice -->
+          <div class="pt-6 border-t border-gold/30 text-center">
+            <p class="text-text-muted italic">
+              <small>Last updated: December 2024</small>
+            </p>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="text-center mt-12">
+          <div class="flex flex-col sm:flex-row gap-6 justify-center">
+            <a href="/contact" class="bg-gold text-dark-bg font-bold text-lg px-8 py-4 rounded-lg hover:bg-gold-dark transition-colors">
+              Contact Us
+            </a>
+            <a href="/" class="border-2 border-gold text-gold font-bold text-lg px-8 py-4 rounded-lg hover:bg-gold hover:text-dark-bg transition-colors">
+              Back to Home
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Main>

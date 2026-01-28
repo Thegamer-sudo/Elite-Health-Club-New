@@ -1,0 +1,683 @@
+---
+// Elite Health Club Chatbot - Same logic as old, modern styling
+---
+
+<!-- Chatbot Structure -->
+<div id="elite-chatbot">
+    <!-- Modern Toggle Button -->
+    <button id="chatbot-toggle" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-gradient-to-br from-gold to-gold-dark shadow-xl shadow-gold/30 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-gold/40 active:scale-95">
+        <!-- Chat Icon -->
+        <svg class="w-6 h-6 text-dark-bg" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
+        </svg>
+    </button>
+    
+    <!-- Chatbot Container -->
+    <div id="chatbot-container" class="fixed z-50 hidden flex-col bg-darker-bg border border-gold/20 rounded-2xl shadow-2xl shadow-black/50 backdrop-blur-sm overflow-hidden"
+         style="
+            width: 380px;
+            height: 580px;
+            max-width: calc(100vw - 32px);
+            max-height: calc(100vh - 32px);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+         ">
+        
+        <!-- Header -->
+        <div class="bg-gradient-to-r from-gold/90 to-gold-dark/90 p-4 flex items-center justify-between border-b border-gold/30">
+            <div class="flex items-center gap-3">
+                <!-- Avatar -->
+                <div class="relative">
+                    <div class="w-9 h-9 rounded-full bg-dark-bg border-2 border-gold/70 flex items-center justify-center">
+                        <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </div>
+                </div>
+                
+                <!-- Chatbot Info -->
+                <div>
+                    <h3 class="font-bold text-dark-bg text-base">Elite Assistant</h3>
+                    <p class="text-dark-bg/80 text-xs font-medium">Online</p>
+                </div>
+            </div>
+            
+            <!-- Close Button -->
+            <button id="chatbot-close" class="text-dark-bg hover:text-dark-bg/70 transition-colors w-7 h-7 rounded-full hover:bg-dark-bg/20 flex items-center justify-center">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Messages Area -->
+        <div id="chatbot-messages" class="flex-1 p-4 overflow-y-auto space-y-3 bg-gradient-to-b from-darker-bg to-black/90">
+            <!-- Initial message will be added by JavaScript -->
+        </div>
+        
+        <!-- Quick Actions -->
+        <div id="chatbot-actions" class="p-3 border-t border-gold/10 bg-black/30">
+            <!-- Actions will be added by JavaScript -->
+        </div>
+        
+        <!-- Input Area -->
+        <div class="chatbot-input p-3 border-t border-gold/10 bg-darker-bg hidden">
+            <div class="flex gap-2">
+                <input 
+                    type="text" 
+                    id="chatbot-input" 
+                    placeholder="Type your message..."
+                    class="flex-1 bg-black/40 border border-gold/20 rounded-lg px-3 py-2 text-text-light text-sm placeholder:text-text-muted focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold/20 transition-colors"
+                >
+                <button id="chatbot-send" class="bg-gradient-to-r from-gold to-gold-dark text-dark-bg font-medium rounded-lg px-3 hover:opacity-90 transition-opacity flex items-center justify-center">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Elite Chatbot - Exact same logic as old site.js
+    class EliteChatbot {
+        constructor() {
+            this.userData = {
+                name: '',
+                selectedPackage: null,
+                tourTime: null,
+                branch: null
+            };
+            this.currentStep = 'welcome';
+            this.isMobile = window.innerWidth <= 768;
+            this.hasShownPackageMessage = false;
+            
+            this.init();
+        }
+
+        init() {
+            setTimeout(() => {
+                this.setupEventListeners();
+            }, 100);
+        }
+
+        setupEventListeners() {
+            // CHATBOT TOGGLE BUTTON
+            const toggleBtn = document.getElementById('chatbot-toggle');
+            if (toggleBtn) {
+                toggleBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    this.toggleChat();
+                });
+            }
+
+            // CHATBOT CLOSE BUTTON
+            const closeBtn = document.getElementById('chatbot-close');
+            if (closeBtn) {
+                closeBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    this.closeChat();
+                });
+            }
+
+            // SEND BUTTON
+            const sendBtn = document.getElementById('chatbot-send');
+            if (sendBtn) {
+                sendBtn.addEventListener('click', () => {
+                    this.sendMessage();
+                });
+            }
+
+            // INPUT FIELD ENTER KEY
+            const inputField = document.getElementById('chatbot-input');
+            if (inputField) {
+                inputField.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        this.sendMessage();
+                    }
+                });
+            }
+        }
+
+        toggleChat() {
+            const container = document.getElementById('chatbot-container');
+            if (!container) return;
+            
+            const isOpening = container.classList.contains('hidden');
+            
+            if (isOpening) {
+                container.classList.remove('hidden');
+                container.style.display = 'flex';
+                
+                if (!this.userData.selectedPackage) {
+                    this.showWelcomeMessage();
+                }
+            } else {
+                this.closeChat();
+            }
+        }
+
+        closeChat() {
+            const container = document.getElementById('chatbot-container');
+            if (container) {
+                container.classList.add('hidden');
+                container.style.display = 'none';
+            }
+            this.hideKeyboard();
+        }
+
+        hideKeyboard() {
+            const input = document.getElementById('chatbot-input');
+            if (input) input.blur();
+        }
+
+        showInput(show = true) {
+            const inputArea = document.querySelector('.chatbot-input');
+            if (!inputArea) return;
+            
+            if (show) {
+                inputArea.classList.remove('hidden');
+            } else {
+                inputArea.classList.add('hidden');
+                this.hideKeyboard();
+            }
+        }
+
+        handlePackageSelection(packageName, branch = null) {
+            console.log('Package selected:', packageName, branch);
+            
+            this.hasShownPackageMessage = false;
+            this.userData.selectedPackage = packageName;
+            this.userData.branch = branch || this.detectBranchFromPage();
+            
+            const container = document.getElementById('chatbot-container');
+            if (container) {
+                container.classList.remove('hidden');
+                container.style.display = 'flex';
+            }
+            
+            const messagesContainer = document.getElementById('chatbot-messages');
+            if (messagesContainer) {
+                messagesContainer.innerHTML = '';
+            }
+            this.clearQuickActions();
+            
+            setTimeout(() => {
+                this.showPackageConfirmation();
+            }, 200);
+        }
+
+        detectBranchFromPage() {
+            const activeTab = document.querySelector('.branch-tab.active');
+            if (activeTab) {
+                const branch = activeTab.getAttribute('data-branch');
+                return branch ? branch.toUpperCase() : 'OVERPORT';
+            }
+            return 'OVERPORT';
+        }
+
+        showWelcomeMessage() {
+            this.addMessage('bot', `Hi! I'm Elite Assistant!\nWhat can I help you with today?`);
+            this.showQuickActions(['Choose Membership Package', 'Ask Questions', 'Book Gym Tour']);
+            this.currentStep = 'welcome';
+            this.showInput(false);
+        }
+
+        showPackageConfirmation() {
+            if (this.hasShownPackageMessage) return;
+            
+            this.hasShownPackageMessage = true;
+            
+            const priceInfo = this.getPackagePrice(this.userData.selectedPackage, this.userData.branch);
+            const cleanPackageName = this.userData.selectedPackage.replace(' - OVERPORT', '').replace(' - MEREBANK', '');
+            
+            this.addMessage('bot', `**Great Choice!**\n\nYou selected: **${cleanPackageName}**\n\n${priceInfo}\n\nReady to book your gym tour?`);
+            
+            this.showActionButtons([
+                { text: 'Yes, Book Tour', action: () => this.startBookingFlow() },
+                { text: 'Choose Different Plan', action: () => this.showBranchSelection() }
+            ]);
+            
+            this.currentStep = 'package_confirmation';
+            this.showInput(false);
+        }
+
+        getPackagePrice(packageName, branch = 'OVERPORT') {
+            const overportPrices = {
+                'STUDENT': '**First Payment:** R600\n(R200/month + R400 joining fee)',
+                'GENERAL': '**First Payment:** R750\n(R350/month + R400 joining fee)',
+                'DEBIT ORDER': '**First Payment:** R650\n(R250/month + R400 joining fee)',
+                'PENSIONER': '**First Payment:** R650\n(R250/month + R400 joining fee)',
+                '6 MONTH PACKAGE': '**Total:** R1,500\n(6 months - no joining fee)',
+                'FAMILY PACKAGE': '**First Payment:** R1,200\n(R800/month + R400 joining fee)',
+                'DAY PASS': '**Day Pass:** R50'
+            };
+            
+            const merebankPrices = {
+                'GENERAL': '**First Payment:** R400\n(R300/month + R100 card fee)',
+                'DEBIT ORDER': '**First Payment:** R300\n(R200/month + R100 card fee)',
+                'STUDENT': '**First Payment:** R250\n(R150/month + R100 card fee)',
+                '6 MONTH PACKAGE': '**Total:** R1,300\n(R1,200 + R100 card fee)',
+                'FAMILY PACKAGE': '**First Payment:** R700\n(R600/month + R100 card fee)',
+                'DAY PASS': '**Day Pass:** R50'
+            };
+
+            const cleanPackageName = packageName.replace(' - OVERPORT', '').replace(' - MEREBANK', '');
+            
+            if (branch === 'MEREBANK') {
+                return merebankPrices[cleanPackageName] || 'Contact for pricing';
+            } else {
+                return overportPrices[cleanPackageName] || 'Contact for pricing';
+            }
+        }
+
+        showBranchSelection() {
+            this.hasShownPackageMessage = false;
+            this.userData.selectedPackage = null;
+            this.userData.branch = null;
+            
+            this.addMessage('bot', `**Choose Your Branch:**`);
+            
+            this.showActionButtons([
+                { text: 'Overport Branch', action: () => this.showOverportPackages() },
+                { text: 'Merebank Plaza', action: () => this.showMerebankPackages() }
+            ]);
+        }
+
+        showOverportPackages() {
+            this.hasShownPackageMessage = false;
+            this.userData.branch = 'OVERPORT';
+            this.addMessage('user', 'Overport Branch');
+            this.addMessage('bot', `**Overport Branch Packages:**`);
+            
+            const packages = [
+                { name: 'GENERAL', price: 'R350/month' },
+                { name: 'STUDENT', price: 'R200/month' },
+                { name: 'DEBIT ORDER', price: 'R250/month' },
+                { name: 'PENSIONER', price: 'R250/month' },
+                { name: '6 MONTH PACKAGE', price: 'R1,500 once-off' },
+                { name: 'FAMILY PACKAGE', price: 'R800/month' }
+            ];
+            
+            this.showActionButtons(packages.map(pkg => ({
+                text: `${pkg.name} - ${pkg.price}`,
+                action: () => this.selectPackageInChat(`${pkg.name} - OVERPORT`)
+            })));
+        }
+
+        showMerebankPackages() {
+            this.hasShownPackageMessage = false;
+            this.userData.branch = 'MEREBANK';
+            this.addMessage('user', 'Merebank Plaza');
+            this.addMessage('bot', `**Merebank Plaza Packages:**`);
+            
+            const packages = [
+                { name: 'GENERAL', price: 'R300/month' },
+                { name: 'DEBIT ORDER', price: 'R200/month' },
+                { name: 'STUDENT', price: 'R150/month' },
+                { name: '6 MONTH PACKAGE', price: 'R1,200 once-off' },
+                { name: 'FAMILY PACKAGE', price: 'R600/month' }
+            ];
+            
+            this.showActionButtons(packages.map(pkg => ({
+                text: `${pkg.name} - ${pkg.price}`,
+                action: () => this.selectPackageInChat(`${pkg.name} - MEREBANK`)
+            })));
+        }
+
+        selectPackageInChat(packageName) {
+            this.hasShownPackageMessage = false;
+            const branch = packageName.includes('MEREBANK') ? 'MEREBANK' : 'OVERPORT';
+            this.userData.selectedPackage = packageName;
+            this.userData.branch = branch;
+            
+            const cleanPackageName = packageName.replace(' - OVERPORT', '').replace(' - MEREBANK', '');
+            this.addMessage('user', `${cleanPackageName}`);
+            
+            setTimeout(() => {
+                this.showPackageConfirmation();
+            }, 100);
+        }
+
+        startBookingFlow() {
+            this.addMessage('user', 'Yes, book tour');
+            this.addMessage('bot', `**Perfect!** Let's get you booked.`);
+            
+            setTimeout(() => {
+                this.askForName();
+            }, 800);
+        }
+
+        askForName() {
+            this.addMessage('bot', `**What's your full name?**`);
+            this.currentStep = 'awaiting_name';
+            this.clearQuickActions();
+            this.showInput(true);
+            this.forceScrollToBottom();
+        }
+
+        askForTourTime() {
+            this.addMessage('bot', `**Choose tour time:**`);
+            
+            const tourTimes = [
+                { time: 'Morning (Mon-Fri: 5AM-12PM)', type: 'Morning' },
+                { time: 'Afternoon (Mon-Fri: 12PM-5PM)', type: 'Afternoon' },
+                { time: 'Evening (Mon-Thu: 5PM-9PM)', type: 'Evening' },
+                { time: 'Weekend (Sat 6AM-4PM, Sun 6AM-2PM)', type: 'Weekend' }
+            ];
+            
+            this.showActionButtons(tourTimes.map(tour => ({
+                text: tour.time,
+                action: () => this.selectTourTime(tour.type)
+            })));
+            
+            this.currentStep = 'awaiting_tour_time';
+            this.showInput(false);
+            this.forceScrollToBottom();
+        }
+
+        selectTourTime(tourTime) {
+            this.userData.tourTime = tourTime;
+            this.addMessage('user', `${tourTime} tour`);
+            this.showBookingSummary();
+        }
+
+        showBookingSummary() {
+            this.addMessage('bot', `**Booking Confirmed!**`);
+            
+            const location = this.userData.branch === 'MEREBANK' 
+                ? 'Merebank Plaza, 50 Bombay Walk, Merebank' 
+                : 'Spark Lifestyle Centre, 98 Cannon Avenue, Overport';
+            
+            const cleanPackageName = this.userData.selectedPackage.replace(' - OVERPORT', '').replace(' - MEREBANK', '');
+            
+            const summaryHTML = `
+                <div class="booking-summary bg-gold/10 border border-gold/20 rounded-lg p-4 my-2">
+                    <div class="flex justify-between py-1 border-b border-gold/10">
+                        <span class="text-text-light/80">Name:</span>
+                        <span class="text-gold font-semibold">${this.userData.name}</span>
+                    </div>
+                    <div class="flex justify-between py-1 border-b border-gold/10">
+                        <span class="text-text-light/80">Package:</span>
+                        <span class="text-gold font-semibold">${cleanPackageName}</span>
+                    </div>
+                    <div class="flex justify-between py-1 border-b border-gold/10">
+                        <span class="text-text-light/80">Location:</span>
+                        <span class="text-gold font-semibold">${location}</span>
+                    </div>
+                    <div class="flex justify-between py-1">
+                        <span class="text-text-light/80">Tour Time:</span>
+                        <span class="text-gold font-semibold">${this.userData.tourTime}</span>
+                    </div>
+                </div>
+            `;
+            
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = summaryHTML;
+            const messagesContainer = document.getElementById('chatbot-messages');
+            if (messagesContainer) messagesContainer.appendChild(tempDiv);
+            
+            setTimeout(() => {
+                this.addMessage('bot', `**Ready to send to WhatsApp?**`);
+                
+                this.showActionButtons([
+                    { text: 'Send via WhatsApp', action: () => this.sendToWhatsApp() },
+                    { text: 'Edit Details', action: () => this.restartBookingFlow() }
+                ]);
+                this.forceScrollToBottom();
+            }, 800);
+        }
+
+        sendToWhatsApp() {
+            const message = this.createWhatsAppMessage();
+            const encodedMessage = encodeURIComponent(message);
+            
+            this.addMessage('user', 'Send via WhatsApp');
+            this.addMessage('bot', `**Opening WhatsApp...**`);
+            
+            setTimeout(() => {
+                window.open(`https://wa.me/27655172764?text=${encodedMessage}`, '_blank');
+                this.resetChatbot();
+            }, 1500);
+        }
+
+        createWhatsAppMessage() {
+            const location = this.userData.branch === 'MEREBANK' 
+                ? 'Merebank Plaza, 50 Bombay Walk, Merebank' 
+                : 'Spark Lifestyle Centre, 98 Cannon Avenue, Overport';
+                
+            const cleanPackageName = this.userData.selectedPackage.replace(' - OVERPORT', '').replace(' - MEREBANK', '');
+                
+            return `Hi Elite Health Club! 
+
+I'd like to book a gym tour:
+
+Name: ${this.userData.name}
+Package: ${cleanPackageName}
+Location: ${location}
+Tour Time: ${this.userData.tourTime}
+
+Please confirm my booking!`;
+        }
+
+        restartBookingFlow() {
+            this.userData.name = '';
+            this.userData.tourTime = null;
+            this.askForName();
+        }
+
+        resetChatbot() {
+            this.userData = {
+                name: '',
+                selectedPackage: null,
+                tourTime: null,
+                branch: null
+            };
+            this.hasShownPackageMessage = false;
+            this.currentStep = 'welcome';
+            
+            setTimeout(() => {
+                this.addMessage('bot', `**Anything else I can help with?**`);
+                this.showQuickActions(['Choose Membership Package', 'Ask Questions', 'Book Gym Tour']);
+                this.forceScrollToBottom();
+            }, 2000);
+        }
+
+        sendMessage() {
+            const input = document.getElementById('chatbot-input');
+            if (!input) return;
+            
+            const message = input.value.trim();
+            if (message) {
+                this.addMessage('user', message);
+                input.value = '';
+                this.handleUserInput(message);
+            }
+        }
+
+        handleUserInput(message) {
+            switch(this.currentStep) {
+                case 'awaiting_name':
+                    this.userData.name = message;
+                    this.showInput(false);
+                    this.askForTourTime();
+                    break;
+                default:
+                    this.handleAIResponse(message);
+                    break;
+            }
+        }
+
+        handleAIResponse(message) {
+            const lowerMessage = message.toLowerCase();
+            
+            if (lowerMessage.includes('hello') || lowerMessage.includes('hi')) {
+                this.addMessage('bot', '**Hello!** Welcome to Elite Health Club!');
+            } else if (lowerMessage.includes('price') || lowerMessage.includes('cost')) {
+                this.addMessage('bot', `**Membership Pricing:**\n\n• Overport Branch:\n  - Student: R200/month\n  - General: R350/month\n  - Debit: R250/month\n  - Pensioner: R250/month\n  - 6-Month: R1,500 once-off\n  - Family: R800/month\n  + R400 joining fee\n\n• Merebank Branch:\n  - General: R300/month\n  - Debit: R200/month\n  - Student: R150/month\n  - 6-Month: R1,200 once-off\n  - Family: R600/month\n  + R100 card fee`);
+            } else if (lowerMessage.includes('hour') || lowerMessage.includes('open')) {
+                this.addMessage('bot', `**Operating Hours:**\n\n• Mon-Thu: 5:00 AM - 9:00 PM\n• Friday: 5:00 AM - 8:00 PM\n• Saturday: 6:00 AM - 4:00 PM\n• Sunday: 6:00 AM - 2:00 PM`);
+            } else if (lowerMessage.includes('where') || lowerMessage.includes('location')) {
+                this.addMessage('bot', `**Locations:**\n\n• Overport Branch:\n  Level 3 – The Spark Lifestyle Centre\n  98 Cannon Avenue, Overport, Durban\n\n• Merebank Branch:\n  Merebank Plaza\n  50 Bombay Walk, Merebank, Durban`);
+            } else if (lowerMessage.includes('trainer') || lowerMessage.includes('coach')) {
+                this.addMessage('bot', `**Our Trainers:**\n\nWe have certified trainers to help you reach your fitness goals! They can create personalized workout plans and provide guidance.`);
+            } else if (lowerMessage.includes('equipment') || lowerMessage.includes('machine')) {
+                this.addMessage('bot', `**Equipment:**\n\nWe have state-of-the-art equipment:\n• Cardio machines\n• Weight training\n• Functional training area\n• Free weights\n• And more!`);
+            } else {
+                this.addMessage('bot', `I'm here to help with memberships, tours, and gym info! Try asking about pricing, hours, or book a tour.`);
+            }
+            
+            this.showQuickActions(['Choose Membership Package', 'Ask Questions', 'Book Gym Tour']);
+            this.forceScrollToBottom();
+        }
+
+        showQuickActions(actions) {
+            const actionsContainer = document.getElementById('chatbot-actions');
+            if (!actionsContainer) return;
+            
+            actionsContainer.innerHTML = '';
+            actions.forEach(actionText => {
+                const button = document.createElement('button');
+                button.className = 'quick-action bg-gold/10 hover:bg-gold/20 border border-gold/30 rounded-lg px-3 py-2 text-xs text-text-light transition-colors whitespace-nowrap mx-1 mb-1';
+                button.textContent = actionText;
+                button.onclick = () => this.handleQuickAction(actionText);
+                actionsContainer.appendChild(button);
+            });
+            
+            this.showInput(false);
+            this.forceScrollToBottom();
+        }
+
+        showActionButtons(actions) {
+            const actionsContainer = document.getElementById('chatbot-actions');
+            if (!actionsContainer) return;
+            
+            actionsContainer.innerHTML = '';
+            actions.forEach(item => {
+                const button = document.createElement('button');
+                button.className = 'quick-action bg-gold/10 hover:bg-gold/20 border border-gold/30 rounded-lg px-3 py-2 text-xs text-text-light transition-colors whitespace-nowrap mx-1 mb-1';
+                button.innerHTML = item.text.replace(/\n/g, '<br>');
+                button.onclick = item.action;
+                actionsContainer.appendChild(button);
+            });
+            
+            this.forceScrollToBottom();
+        }
+
+        clearQuickActions() {
+            const actionsContainer = document.getElementById('chatbot-actions');
+            if (actionsContainer) actionsContainer.innerHTML = '';
+        }
+
+        handleQuickAction(action) {
+            switch(action) {
+                case 'Choose Membership Package':
+                    this.showBranchSelection();
+                    break;
+                case 'Ask Questions':
+                    this.addMessage('user', 'I have questions');
+                    this.addMessage('bot', `**Ask me anything!**\n\nI can help with:\n• Membership & pricing\n• Operating hours\n• Location & facilities\n• Booking tours\n\nWhat would you like to know?`);
+                    this.showInput(true);
+                    this.forceScrollToBottom();
+                    break;
+                case 'Book Gym Tour':
+                    this.userData.selectedPackage = 'General - OVERPORT';
+                    this.userData.branch = 'OVERPORT';
+                    this.startBookingFlow();
+                    break;
+            }
+        }
+
+        addMessage(sender, text) {
+            const messagesContainer = document.getElementById('chatbot-messages');
+            if (!messagesContainer) return;
+            
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message-${sender} flex ${sender === 'user' ? 'justify-end' : ''}`;
+            
+            const messageHTML = `
+                <div class="flex items-start gap-2 ${sender === 'user' ? 'flex-row-reverse' : ''}">
+                    ${sender === 'bot' ? `
+                        <div class="w-7 h-7 rounded-full bg-gold/20 flex items-center justify-center flex-shrink-0 mt-1">
+                            <svg class="w-3 h-3 text-gold" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                        </div>
+                    ` : ''}
+                    
+                    <div class="flex-1 min-w-0 ${sender === 'user' ? 'text-right' : ''}">
+                        <div class="${sender === 'user' ? 
+                            'bg-gradient-to-r from-gold to-gold-dark text-dark-bg border-gold/40 rounded-xl rounded-br-none p-3 ml-auto' : 
+                            'bg-gold/10 border border-gold/20 rounded-xl rounded-tl-none p-3'
+                        } max-w-[85%] ${sender === 'user' ? 'float-right' : 'float-left'}">
+                            <p class="text-sm whitespace-pre-line">${text.replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold">$1</strong>')}</p>
+                        </div>
+                    </div>
+                    
+                    ${sender === 'user' ? `
+                        <div class="w-7 h-7 rounded-full bg-gradient-to-r from-gold to-gold-dark flex items-center justify-center flex-shrink-0 mt-1">
+                            <svg class="w-3 h-3 text-dark-bg" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                            </svg>
+                        </div>
+                    ` : ''}
+                </div>
+            `;
+            
+            messageDiv.innerHTML = messageHTML;
+            messagesContainer.appendChild(messageDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            
+            if (sender === 'user') this.clearQuickActions();
+            this.forceScrollToBottom();
+        }
+
+        forceScrollToBottom() {
+            const messagesContainer = document.getElementById('chatbot-messages');
+            if (messagesContainer) {
+                setTimeout(() => {
+                    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+                }, 100);
+            }
+        }
+    }
+
+    // Initialize chatbot
+    document.addEventListener('DOMContentLoaded', function() {
+        window.eliteChatbot = new EliteChatbot();
+    });
+</script>
+
+<style>
+    /* Desktop positioning */
+    @media (min-width: 1024px) {
+        #chatbot-container {
+            top: auto !important;
+            left: auto !important;
+            right: 30px !important;
+            bottom: 90px !important;
+            transform: none !important;
+        }
+    }
+    
+    /* Mobile positioning */
+    @media (max-width: 768px) {
+        #chatbot-container {
+            border-radius: 16px !important;
+            width: calc(100vw - 32px) !important;
+            height: 70vh !important;
+        }
+        
+        #chatbot-toggle {
+            bottom: 20px !important;
+            right: 20px !important;
+        }
+    }
+    
+    /* Ensure z-index */
+    #chatbot-container, #chatbot-toggle {
+        z-index: 9999 !important;
+    }
+</style>

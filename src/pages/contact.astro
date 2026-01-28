@@ -1,0 +1,135 @@
+---
+import Main from '../layouts/Main.astro';
+---
+
+<Main>
+  <!-- Hero Section -->
+  <section class="min-h-[60vh] flex items-center justify-center pt-20 bg-cover bg-center"
+           style="background-image: linear-gradient(rgba(10, 10, 10, 0.8), rgba(212, 175, 55, 0.3)), url('/images/contact-gym.jpg')">
+      <h1 class="font-montserrat font-black text-4xl md:text-5xl lg:text-6xl uppercase mb-4 text-gold">
+        Get In Touch
+      </h1>
+      <p class="text-text-light text-xl md:text-2xl">We're here to help you start your fitness journey</p>
+    </div>
+  </section>
+
+  <!-- Contact Info Cards -->
+  <section class="py-16 bg-darker-bg">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+          <!-- Visit Us Card -->
+          <div class="bg-black border-2 border-gold/30 rounded-xl p-8 hover:border-gold transition-all hover:-translate-y-2">
+            <h3 class="text-gold text-2xl font-bold mb-6 flex items-center">
+              <i class="fas fa-map-marker-alt mr-3"></i>Visit Us
+            </h3>
+            <div class="text-text-light space-y-3">
+              <p class="font-bold">Elite Health Club</p>
+              <p>Level 3 – The Spark Lifestyle Centre</p>
+              <p>98 Cannon Avenue, Overport</p>
+              <p>Durban, KwaZulu-Natal</p>
+              <p>South Africa</p>
+            </div>
+          </div>
+
+          <!-- Operating Hours Card -->
+          <div class="bg-black border-2 border-gold/30 rounded-xl p-8 hover:border-gold transition-all hover:-translate-y-2">
+            <h3 class="text-gold text-2xl font-bold mb-6 flex items-center">
+              <i class="fas fa-clock mr-3"></i>Operating Hours
+            </h3>
+            <div class="text-text-light space-y-3">
+              <p><strong>Monday - Thursday:</strong> 05:00 - 21:00</p>
+              <p><strong>Friday:</strong> 05:00 - 20:00</p>
+              <p><strong>Saturday:</strong> 06:00 - 16:00</p>
+              <p><strong>Sunday:</strong> 06:00 - 14:00</p>
+              <p><strong>Public Holidays:</strong> 06:00 - 14:00</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Connect With Us Card -->
+        <div class="bg-black border-2 border-gold/30 rounded-xl p-8 text-center mb-12">
+          <h3 class="text-gold text-2xl font-bold mb-6 flex items-center justify-center">
+            <i class="fas fa-share-alt mr-3"></i>Connect With Us
+          </h3>
+          
+          <!-- Social Icons -->
+          <div class="flex justify-center space-x-8 mb-6">
+            <a href="https://www.instagram.com/elitehealthclub/" 
+               class="text-gold text-3xl hover:text-gold-light transition-colors"
+               target="_blank"
+               title="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com/elitehp/" 
+               class="text-gold text-3xl hover:text-gold-light transition-colors"
+               target="_blank"
+               title="Facebook">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="mailto:elitehcdurban@gmail.com" 
+               class="text-gold text-3xl hover:text-gold-light transition-colors"
+               title="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://wa.me/27655172764" 
+               class="text-gold text-3xl hover:text-gold-light transition-colors"
+               target="_blank"
+               title="WhatsApp">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          </div>
+          
+          <p class="text-text-light">
+            <strong>Email:</strong> elitehcdurban@gmail.com
+          </p>
+        </div>
+
+        <!-- Quick Action Buttons -->
+        <div class="grid md:grid-cols-3 gap-6 mb-12">
+          <a href="https://wa.me/27655172764" 
+             target="_blank"
+             class="bg-gold text-dark-bg font-bold text-lg py-4 rounded-lg hover:bg-gold-dark transition-colors flex items-center justify-center">
+            <i class="fab fa-whatsapp mr-3 text-2xl"></i>
+            Chat Now
+          </a>
+          
+          <a href="tel:+27655172764"
+             class="border-2 border-gold text-gold font-bold text-lg py-4 rounded-lg hover:bg-gold hover:text-dark-bg transition-colors flex items-center justify-center">
+            <i class="fas fa-phone mr-3 text-2xl"></i>
+            Call Now
+          </a>
+          
+          <a href="/join"
+             class="border-2 border-gold text-gold font-bold text-lg py-4 rounded-lg hover:bg-gold hover:text-dark-bg transition-colors flex items-center justify-center">
+            <i class="fas fa-dumbbell mr-3 text-2xl"></i>
+            Join Now
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map Section -->
+  <section class="py-16 bg-black">
+    <div class="container mx-auto px-4">
+      <h2 class="font-montserrat font-bold text-3xl text-text-light text-center mb-8">
+        Find Us
+      </h2>
+      
+      <div class="bg-darker-bg border-2 border-gold/30 rounded-xl p-12 text-center max-w-2xl mx-auto">
+        <i class="fas fa-map-marker-alt text-gold text-5xl mb-6"></i>
+        <h4 class="text-gold text-2xl font-bold mb-4">Elite Health Club</h4>
+        <p class="text-text-light mb-3">Level 3 – The Spark Lifestyle Centre</p>
+        <p class="text-text-light mb-6">98 Cannon Avenue, Overport, Durban</p>
+        
+        <a href="https://maps.google.com/?q=Level+3+The+Spark+Lifestyle+Centre+98+Cannon+Avenue+Overport+Durban"
+           target="_blank"
+           class="inline-flex items-center bg-gold text-dark-bg font-bold px-8 py-3 rounded-lg hover:bg-gold-dark transition-colors">
+          <i class="fas fa-directions mr-3"></i>
+          Get Directions
+        </a>
+      </div>
+    </div>
+  </section>
+</Main>

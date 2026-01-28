@@ -1,0 +1,352 @@
+---
+import Main from '../layouts/Main.astro';
+---
+
+<Main>
+  <!-- Hero Section -->
+  <section class="min-h-screen flex items-center justify-center">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="font-montserrat font-black text-5xl md:text-7xl lg:text-8xl uppercase mb-6 text-gold">
+        Your Body. Your Discipline.
+      </h1>
+      
+      <h2 class="text-2xl md:text-3xl text-white font-light mb-10">
+        Welcome to Elite Health Club.
+      </h2>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/join" class="bg-gold text-black font-bold text-lg px-8 py-4 rounded-lg hover:bg-gold-dark transition-colors transform hover:scale-105 transition-transform duration-300">
+          Start Your Journey
+        </a>
+        
+        <a href="/about" class="border-2 border-gold text-gold font-bold text-lg px-8 py-4 rounded-lg hover:bg-gold hover:text-black transition-colors transform hover:scale-105 transition-transform duration-300">
+          Learn More
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SIMPLE INTRODUCTION ========== -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <p class="text-lg md:text-xl text-text-light/90 leading-relaxed">
+          At <span class="text-gold font-semibold">Elite Health Club</span>, we believe fitness transforms more than just your body—it builds <span class="text-gold">confidence, discipline, and community</span>. 
+          Our two premium locations offer state-of-the-art facilities with certified trainers ready to guide every step of your journey.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== BRANCH SELECTION CARDS ========== -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="font-montserrat font-bold text-3xl md:text-4xl text-center text-text-light mb-12">
+        Choose Your <span class="text-gold">Branch</span>
+      </h2>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <!-- Overport Branch Card -->
+        <div class="branch-card group relative overflow-hidden border-2 border-gold/30 rounded-2xl p-8 transition-all duration-300 hover:border-gold hover:scale-[1.02]">
+          <div class="relative z-10">
+            <!-- Header -->
+            <div class="flex items-center justify-between mb-6">
+              <div>
+                <h3 class="font-montserrat font-bold text-2xl text-gold">Overport Branch</h3>
+                <p class="text-text-light/80">Spark Lifestyle Centre</p>
+              </div>
+              <div class="w-12 h-12 rounded-full bg-gold/20 border border-gold/40 flex items-center justify-center">
+                <i class="fas fa-building text-gold text-xl"></i>
+              </div>
+            </div>
+            
+            <!-- Features -->
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-center text-text-light">
+                <i class="fas fa-check-circle text-gold mr-3"></i>
+                <span>Level 3 – 98 Cannon Avenue</span>
+              </li>
+              <li class="flex items-center text-text-light">
+                <i class="fas fa-dumbbell text-gold mr-3"></i>
+                <span>Premium equipment & facilities</span>
+              </li>
+              <li class="flex items-center text-text-light">
+                <i class="fas fa-users text-gold mr-3"></i>
+                <span>Vibrant training community</span>
+              </li>
+            </ul>
+            
+            <!-- CTA Button - SIMPLE LINK -->
+            <a href="/join" 
+               class="inline-flex items-center justify-center w-full bg-gradient-to-r from-gold to-gold-dark text-dark-bg font-bold py-3 px-6 rounded-lg hover:opacity-90 transition-all duration-300">
+              View Overport Pricing
+              <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Merebank Branch Card -->
+        <div class="branch-card group relative overflow-hidden border-2 border-gold/30 rounded-2xl p-8 transition-all duration-300 hover:border-gold hover:scale-[1.02]">
+          <div class="relative z-10">
+            <!-- Header -->
+            <div class="flex items-center justify-between mb-6">
+              <div>
+                <h3 class="font-montserrat font-bold text-2xl text-gold">Merebank Plaza</h3>
+                <p class="text-text-light/80">50 Bombay Walk</p>
+              </div>
+              <div class="w-12 h-12 rounded-full bg-gold/20 border border-gold/40 flex items-center justify-center">
+                <i class="fas fa-store text-gold text-xl"></i>
+              </div>
+            </div>
+            
+            <!-- Features -->
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-center text-text-light">
+                <i class="fas fa-check-circle text-gold mr-3"></i>
+                <span>Convenient Merebank location</span>
+              </li>
+              <li class="flex items-center text-text-light">
+                <i class="fas fa-dumbbell text-gold mr-3"></i>
+                <span>Full range of equipment</span>
+              </li>
+              <li class="flex items-center text-text-light">
+                <i class="fas fa-handshake text-gold mr-3"></i>
+                <span>Family-friendly environment</span>
+              </li>
+            </ul>
+            
+            <!-- CTA Button - SIMPLE LINK -->
+            <a href="/join" 
+               class="inline-flex items-center justify-center w-full bg-gradient-to-r from-gold to-gold-dark text-dark-bg font-bold py-3 px-6 rounded-lg hover:opacity-90 transition-all duration-300">
+              View Merebank Pricing
+              <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Journey Steps Section -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-4">
+        <!-- Step 1 -->
+        <div class="text-center">
+          <div class="w-16 h-16 bg-gold/10 border-2 border-gold/30 rounded-full flex items-center justify-center mx-auto mb-3">
+            <i class="fas fa-box-open text-gold text-2xl"></i>
+          </div>
+          <h4 class="text-gold font-semibold mb-1">Choose Your Plan</h4>
+          <p class="text-white text-sm">Select membership that fits your goals</p>
+        </div>
+
+        <!-- Arrow -->
+        <div class="hidden md:block text-gold text-xl">
+          <i class="fas fa-arrow-right"></i>
+        </div>
+        <div class="md:hidden text-gold text-xl my-2">
+          <i class="fas fa-arrow-down"></i>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="text-center">
+          <div class="w-16 h-16 bg-gold/10 border-2 border-gold/30 rounded-full flex items-center justify-center mx-auto mb-3">
+            <i class="fas fa-clipboard-check text-gold text-2xl"></i>
+          </div>
+          <h4 class="text-gold font-semibold mb-1">Complete Registration</h4>
+          <p class="text-white text-sm">Quick sign-up & payment process</p>
+        </div>
+
+        <!-- Arrow -->
+        <div class="hidden md:block text-gold text-xl">
+          <i class="fas fa-arrow-right"></i>
+        </div>
+        <div class="md:hidden text-gold text-xl my-2">
+          <i class="fas fa-arrow-down"></i>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="text-center">
+          <div class="w-16 h-16 bg-gold/10 border-2 border-gold/30 rounded-full flex items-center justify-center mx-auto mb-3">
+            <i class="fas fa-id-card text-gold text-2xl"></i>
+          </div>
+          <h4 class="text-gold font-semibold mb-1">Receive Membership Card</h4>
+          <p class="text-white text-sm">Get personalized Elite access card</p>
+        </div>
+
+        <!-- Arrow -->
+        <div class="hidden md:block text-gold text-xl">
+          <i class="fas fa-arrow-right"></i>
+        </div>
+        <div class="md:hidden text-gold text-xl my-2">
+          <i class="fas fa-arrow-down"></i>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="text-center">
+          <div class="w-16 h-16 bg-gold/10 border-2 border-gold/30 rounded-full flex items-center justify-center mx-auto mb-3">
+            <i class="fas fa-dumbbell text-gold text-2xl"></i>
+          </div>
+          <h4 class="text-gold font-semibold mb-1">Start Training</h4>
+          <p class="text-white text-sm">Begin transformation journey</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Membership Card Section -->
+  <section class="py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="font-montserrat font-bold text-3xl md:text-4xl text-text-light mb-4">
+        Your Elite Membership Card
+      </h2>
+      <p class="text-text-light mb-8">Personalized access with premium benefits</p>
+      
+      <!-- Membership Card -->
+      <div class="max-w-md mx-auto">
+        <div class="bg-darker-bg border-2 border-gold/30 rounded-xl p-6 relative overflow-hidden">
+          <!-- Card Background -->
+          <div class="absolute inset-0 bg-[url('/images/gym-main.jpg')] bg-cover opacity-10"></div>
+          
+          <!-- Card Content -->
+          <div class="relative z-10">
+            <!-- Card Header -->
+            <div class="flex justify-between items-center mb-8">
+              <div class="font-montserrat font-extrabold text-gold text-2xl">ELITE</div>
+              <div class="bg-gold/20 text-gold text-xs font-semibold px-3 py-1 rounded-full border border-gold/30">
+                PREMIUM
+              </div>
+            </div>
+            
+            <!-- Card Body -->
+            <div class="flex items-center gap-4 mb-8">
+              <!-- Member Photo Circle -->
+              <div class="w-16 h-16 border-2 border-gold/50 rounded-full flex items-center justify-center">
+                <i class="fas fa-dumbbell text-gold text-2xl"></i>
+              </div>
+              
+              <!-- Member Info -->
+              <div class="text-left">
+                <div class="text-text-light font-bold text-xl">YOUR NAME</div>
+                <div class="text-gold text-sm">FITNESS MEMBER</div>
+                <div class="text-text-light text-xs opacity-80">ID: ELITE-2024</div>
+              </div>
+            </div>
+            
+            <!-- Card Footer -->
+            <div class="flex justify-between text-xs">
+              <div class="text-gold font-semibold">VALID AT ALL ELITE LOCATIONS</div>
+              <div class="text-text-light opacity-60">AUTHORIZED SIGNATURE</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Section -->
+  <section class="py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="font-montserrat font-bold text-3xl md:text-4xl text-text-light mb-4">
+        Elite Training Experience
+      </h2>
+      <p class="text-text-light mb-8">Professional workouts & techniques</p>
+      
+      <!-- Single Video -->
+      <div class="max-w-2xl mx-auto">
+        <div class="bg-darker-bg border border-gold/20 rounded-xl overflow-hidden">
+          <!-- Video Container -->
+          <div class="relative group">
+            <video 
+              id="training-video"
+              class="w-full h-64 md:h-80 object-cover cursor-pointer"
+              controls
+              playsinline
+              preload="metadata"
+            >
+              <source src="/videos/workout2.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            
+            <!-- Custom Play Button (optional) -->
+            <div id="play-overlay" class="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/30 transition-all cursor-pointer">
+              <div class="w-20 h-20 bg-gold/90 rounded-full flex items-center justify-center transform group-hover:scale-110 transition-transform">
+                <i class="fas fa-play text-white text-3xl ml-1"></i>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Video Caption -->
+          <div class="p-6">
+            <h5 class="text-gold text-xl font-semibold mb-2">Deadlift Party</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact CTA Section -->
+  <section class="py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="font-montserrat font-bold text-3xl md:text-4xl text-text-light mb-4">
+        Ready to Transform?
+      </h2>
+      <p class="text-text-light text-xl mb-8">Start your Elite journey today</p>
+      
+      <!-- Contact Buttons -->
+      <div class="flex flex-col md:flex-row gap-4 justify-center max-w-2xl mx-auto">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/27655172764" 
+           target="_blank"
+           class="bg-gold text-dark-bg font-bold text-lg px-8 py-4 rounded-lg hover:bg-gold-dark transition-colors flex items-center justify-center transform hover:scale-105 transition-transform duration-300">
+          <i class="fab fa-whatsapp mr-3 text-2xl"></i>
+          Chat on WhatsApp
+        </a>
+        
+        <!-- Call Button -->
+        <a href="tel:+27655172764"
+           class="border-2 border-gold text-gold font-bold text-lg px-8 py-4 rounded-lg hover:bg-gold hover:text-dark-bg transition-colors flex items-center justify-center transform hover:scale-105 transition-transform duration-300">
+          <i class="fas fa-phone mr-3 text-2xl"></i>
+          Call Now
+        </a>
+      </div>
+    </div>
+  </section>
+</Main>
+
+<script is:inline>
+  // Simple video player functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const video = document.getElementById('training-video');
+    const playOverlay = document.getElementById('play-overlay');
+    
+    if (video && playOverlay) {
+      // Click overlay to play
+      playOverlay.addEventListener('click', function() {
+        video.play();
+        playOverlay.style.display = 'none';
+      });
+      
+      // Click video to play/pause
+      video.addEventListener('click', function() {
+        if (video.paused) {
+          video.play();
+          playOverlay.style.display = 'none';
+        } else {
+          video.pause();
+          playOverlay.style.display = 'flex';
+        }
+      });
+      
+      // Show overlay when video ends
+      video.addEventListener('ended', function() {
+        playOverlay.style.display = 'flex';
+      });
+      
+      // Show overlay when video pauses
+      video.addEventListener('pause', function() {
+        playOverlay.style.display = 'flex';
+      });
+    }
+  });
+</script>

@@ -1,0 +1,91 @@
+---
+import Main from '../layouts/Main.astro';
+---
+
+<Main>
+  <section class="min-h-[60vh] flex items-center justify-center pt-20 bg-cover bg-center"
+           style="background: linear-gradient(rgba(10, 10, 10, 0.8), rgba(212, 175, 55, 0.3)), url('/images/about-gym.jpg')">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="font-montserrat font-black text-4xl md:text-5xl lg:text-6xl uppercase mb-4 text-gold">
+        About Elite Health Club
+      </h1>
+      <p class="text-text-light text-xl md:text-2xl">More than a gym - it's a lifestyle</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="py-16 bg-darker-bg">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <!-- Our Story -->
+        <div class="mb-12">
+          <h2 class="font-montserrat font-bold text-3xl text-text-light mb-6">Our Story</h2>
+          <p class="text-text-light text-lg leading-relaxed mb-6">
+            Elite Health Club was founded with a simple mission: to create a fitness sanctuary where
+            individuals can transform not just their bodies, but their lives. Located in the heart of
+            Durban at The Spark Lifestyle Centre, we've become the premier destination for those who
+            refuse to settle for ordinary.
+          </p>
+        </div>
+
+        <!-- Why Choose Elite? -->
+        <div class="mb-12">
+          <h3 class="text-gold text-2xl font-bold mb-8">Why Choose Elite?</h3>
+          
+          <div class="grid md:grid-cols-2 gap-8">
+            <!-- Feature 1 -->
+            <div class="bg-black border-2 border-gold/30 rounded-xl p-8 text-center hover:border-gold transition-all hover:-translate-y-2">
+              <i class="fas fa-dumbbell text-gold text-4xl mb-4"></i>
+              <h4 class="text-gold text-xl font-bold mb-3">World-Class Equipment</h4>
+              <p class="text-text-light">State-of-the-art fitness equipment from leading international brands</p>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="bg-black border-2 border-gold/30 rounded-xl p-8 text-center hover:border-gold transition-all hover:-translate-y-2">
+              <i class="fas fa-users text-gold text-4xl mb-4"></i>
+              <h4 class="text-gold text-xl font-bold mb-3">Expert Trainers</h4>
+              <p class="text-text-light">Certified professionals dedicated to your fitness journey</p>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="bg-black border-2 border-gold/30 rounded-xl p-8 text-center hover:border-gold transition-all hover:-translate-y-2">
+              <i class="fas fa-heart text-gold text-4xl mb-4"></i>
+              <h4 class="text-gold text-xl font-bold mb-3">Supportive Community</h4>
+              <p class="text-text-light">Join a family that motivates and inspires each other</p>
+            </div>
+
+            <!-- Feature 4 -->
+            <div class="bg-black border-2 border-gold/30 rounded-xl p-8 text-center hover:border-gold transition-all hover:-translate-y-2">
+              <i class="fas fa-star text-gold text-4xl mb-4"></i>
+              <h4 class="text-gold text-xl font-bold mb-3">Premium Facilities</h4>
+              <p class="text-text-light">Luxurious amenities for the complete fitness experience</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Our Philosophy -->
+        <div class="mb-12">
+          <h3 class="text-gold text-2xl font-bold mb-6">Our Philosophy</h3>
+          <p class="text-text-light text-lg leading-relaxed">
+            At Elite Health Club, we believe that true transformation happens when mind, body, and
+            spirit align. We're not just about lifting weights; we're about lifting standards.
+            Every drop of sweat, every rep, every moment of discipline brings you closer to the
+            elite version of yourself.
+          </p>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="text-center">
+          <div class="flex flex-col sm:flex-row gap-6 justify-center">
+            <a href="/join" class="bg-gold text-dark-bg font-bold text-lg px-8 py-4 rounded-lg hover:bg-gold-dark transition-colors">
+              Join Today
+            </a>
+            <a href="/contact" class="border-2 border-gold text-gold font-bold text-lg px-8 py-4 rounded-lg hover:bg-gold hover:text-dark-bg transition-colors">
+              Get In Touch
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Main>

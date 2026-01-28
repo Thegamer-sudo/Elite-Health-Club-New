@@ -1,0 +1,33 @@
+---
+// Header Component
+---
+
+<nav class="fixed top-0 left-0 w-full bg-black py-4 z-50 border-b border-gold">
+  <div class="container mx-auto px-4">
+    <div class="flex items-center justify-between">
+     <!-- Logo -->
+<a href="/" class="flex items-center">
+  <img src="/images/elite-logo.png" alt="Elite Health Club" class="h-10 mr-3">
+  <span class="font-montserrat font-extrabold text-gold text-xl uppercase tracking-wider">
+    ELITE HEALTH CLUB
+  </span>
+</a>
+
+      <!-- Navigation -->
+      <div class="hidden md:flex items-center space-x-6">
+        <a href="/" class="text-white font-medium hover:text-gold transition-colors">Home</a>
+        <a href="/join" class="text-white font-medium hover:text-gold transition-colors">Join</a>
+        <a href="/about" class="text-white font-medium hover:text-gold transition-colors">About</a>
+        <a href="/contact" class="text-white font-medium hover:text-gold transition-colors">Contact</a>
+        <a href="/join" class="ml-4 bg-gold text-black font-semibold px-6 py-2 rounded-lg hover:bg-gold-dark transition-colors">
+          Join Now
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button class="md:hidden text-white">
+        <i class="fas fa-bars text-xl"></i>
+      </button>
+    </div>
+  </div>
+</nav>
