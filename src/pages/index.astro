@@ -3,23 +3,24 @@ import Main from '../layouts/Main.astro';
 ---
 
 <Main>
-  <!-- Hero Section -->
-  <section class="min-h-screen flex items-center justify-center">
+  <!-- Hero Section - REDUCED TOP SPACING -->
+  <section class="min-h-[80vh] sm:min-h-screen flex items-center justify-center pt-12 sm:pt-0">
     <div class="container mx-auto px-4 text-center">
-      <h1 class="font-montserrat font-black text-5xl md:text-7xl lg:text-8xl uppercase mb-6 text-gold animate-float">
+      <!-- MAIN HEADING - MOVED CLOSER TO TOP -->
+      <h1 class="font-montserrat font-black text-4xl sm:text-5xl md:text-7xl lg:text-8xl uppercase mb-4 sm:mb-6 text-gold animate-float">
         Your Body. Your Discipline.
       </h1>
       
-      <h2 class="text-2xl md:text-3xl text-white font-light mb-10 animate-float-delayed">
+      <h2 class="text-xl sm:text-2xl md:text-3xl text-white font-light mb-6 sm:mb-10 animate-float-delayed">
         Welcome to Elite Health Club.
       </h2>
       
-      <div class="flex flex-col sm:flex-row gap-4 justify-center animate-float-delayed-2">
-        <a href="/join" class="bg-gold text-black font-bold text-lg px-8 py-4 rounded-lg hover:bg-gold-dark transition-colors transform hover:scale-105 transition-transform duration-300">
+      <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center animate-float-delayed-2">
+        <a href="/join" class="bg-gold text-black font-bold text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:bg-gold-dark transition-colors transform hover:scale-105 transition-transform duration-300">
           Start Your Journey
         </a>
         
-        <a href="/about" class="border-2 border-gold text-gold font-bold text-lg px-8 py-4 rounded-lg hover:bg-gold hover:text-black transition-colors transform hover:scale-105 transition-transform duration-300">
+        <a href="/about" class="border-2 border-gold text-gold font-bold text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:bg-gold hover:text-black transition-colors transform hover:scale-105 transition-transform duration-300">
           Learn More
         </a>
       </div>
@@ -27,18 +28,18 @@ import Main from '../layouts/Main.astro';
   </section>
 
   <!-- ========== PERFECT INTRODUCTION ========== -->
-  <section class="py-8 -mt-12 animate-on-scroll">
+  <section class="pt-2 pb-6 -mt-16 sm:-mt-20 md:-mt-24 animate-on-scroll">
     <div class="container mx-auto px-4">
       <div class="max-w-3xl mx-auto text-center">
-        <p class="text-2xl md:text-3xl text-text-light/90 leading-relaxed font-medium">
+        <p class="text-lg sm:text-xl md:text-2xl lg:text-3xl text-text-light/90 leading-relaxed font-medium">
           At <span class="text-gold font-semibold">Elite Health Club</span>, we believe fitness transforms more than just your body—it builds <span class="text-gold">confidence, discipline, and community</span>.
         </p>
         
-        <p class="text-xl text-text-light/80 mt-6">
+        <p class="text-base sm:text-lg md:text-xl text-text-light/80 mt-4 sm:mt-6">
           Our two premium locations offer state-of-the-art facilities with certified trainers ready to guide every step of your journey.
         </p>
         
-        <p class="text-lg text-text-light/70 mt-4">
+        <p class="text-sm sm:text-base md:text-lg text-text-light/70 mt-3 sm:mt-4">
           Elite operates from two strategic locations across Durban. Below are our branches:
         </p>
       </div>
@@ -46,99 +47,99 @@ import Main from '../layouts/Main.astro';
   </section>
 
   <!-- ========== BRANCH CARDS ========== -->
-  <section class="py-8 animate-on-scroll">
+  <section class="py-6 sm:py-8 animate-on-scroll">
     <div class="container mx-auto px-4">
-      <h2 class="font-montserrat font-bold text-3xl md:text-4xl text-center text-text-light mb-12">
+      <h2 class="font-montserrat font-bold text-2xl sm:text-3xl md:text-4xl text-center text-text-light mb-8 sm:mb-12">
         Our <span class="text-gold">Branches</span>
       </h2>
       
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
         <!-- Overport Branch Card -->
-        <div class="branch-card animate-card group relative overflow-hidden border-2 border-gold/30 rounded-2xl p-8 transition-all duration-300 hover:border-gold hover:scale-[1.02]">
+        <div class="branch-card animate-card group relative overflow-hidden border-2 border-gold/30 rounded-2xl p-4 sm:p-6 md:p-8 transition-all duration-300 hover:border-gold hover:scale-[1.02]">
           <div class="relative z-10">
             <!-- Header -->
-            <div class="flex items-center justify-between mb-6">
+            <div class="flex items-center justify-between mb-4 sm:mb-6">
               <div>
-                <h3 class="font-montserrat font-bold text-2xl text-gold">Overport Branch</h3>
-                <p class="text-text-light/80">Spark Lifestyle Centre</p>
+                <h3 class="font-montserrat font-bold text-xl sm:text-2xl text-gold">Overport Branch</h3>
+                <p class="text-text-light/80 text-sm sm:text-base">Spark Lifestyle Centre</p>
               </div>
-              <div class="w-12 h-12 rounded-full bg-gold/20 border border-gold/40 flex items-center justify-center">
-                <i class="fas fa-building text-gold text-xl"></i>
+              <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gold/20 border border-gold/40 flex items-center justify-center">
+                <i class="fas fa-building text-gold text-lg sm:text-xl"></i>
               </div>
             </div>
             
             <!-- Features -->
-            <ul class="space-y-3 mb-8">
-              <li class="flex items-center text-text-light">
-                <i class="fas fa-check-circle text-gold mr-3"></i>
+            <ul class="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
+              <li class="flex items-center text-text-light text-sm sm:text-base">
+                <i class="fas fa-check-circle text-gold mr-2 sm:mr-3 text-sm sm:text-base"></i>
                 <span>Level 3 – 98 Cannon Avenue</span>
               </li>
-              <li class="flex items-center text-text-light">
-                <i class="fas fa-dumbbell text-gold mr-3"></i>
+              <li class="flex items-center text-text-light text-sm sm:text-base">
+                <i class="fas fa-dumbbell text-gold mr-2 sm:mr-3 text-sm sm:text-base"></i>
                 <span>Premium equipment & facilities</span>
               </li>
-              <li class="flex items-center text-text-light">
-                <i class="fas fa-users text-gold mr-3"></i>
+              <li class="flex items-center text-text-light text-sm sm:text-base">
+                <i class="fas fa-users text-gold mr-2 sm:mr-3 text-sm sm:text-base"></i>
                 <span>Vibrant training community</span>
               </li>
             </ul>
             
             <!-- CTA Button -->
             <a href="/join" 
-               class="inline-flex items-center justify-center w-full bg-gradient-to-r from-gold to-gold-dark text-dark-bg font-bold py-3 px-6 rounded-lg hover:opacity-90 transition-all duration-300">
+               class="inline-flex items-center justify-center w-full bg-gradient-to-r from-gold to-gold-dark text-dark-bg font-bold py-2 sm:py-3 px-4 sm:px-6 rounded-lg hover:opacity-90 transition-all duration-300 text-sm sm:text-base">
               View Overport
-              <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
+              <i class="fas fa-arrow-right ml-1 sm:ml-2 transition-transform group-hover:translate-x-1 text-sm sm:text-base"></i>
             </a>
           </div>
         </div>
         
         <!-- Merebank Branch Card -->
-        <div class="branch-card animate-card-delayed group relative overflow-hidden border-2 border-gold/30 rounded-2xl p-8 transition-all duration-300 hover:border-gold hover:scale-[1.02]">
+        <div class="branch-card animate-card-delayed group relative overflow-hidden border-2 border-gold/30 rounded-2xl p-4 sm:p-6 md:p-8 transition-all duration-300 hover:border-gold hover:scale-[1.02]">
           <div class="relative z-10">
             <!-- Header -->
-            <div class="flex items-center justify-between mb-6">
+            <div class="flex items-center justify-between mb-4 sm:mb-6">
               <div>
-                <h3 class="font-montserrat font-bold text-2xl text-gold">Merebank Plaza</h3>
-                <p class="text-text-light/80">50 Bombay Walk</p>
+                <h3 class="font-montserrat font-bold text-xl sm:text-2xl text-gold">Merebank Plaza</h3>
+                <p class="text-text-light/80 text-sm sm:text-base">50 Bombay Walk</p>
               </div>
-              <div class="w-12 h-12 rounded-full bg-gold/20 border border-gold/40 flex items-center justify-center">
-                <i class="fas fa-store text-gold text-xl"></i>
+              <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gold/20 border border-gold/40 flex items-center justify-center">
+                <i class="fas fa-store text-gold text-lg sm:text-xl"></i>
               </div>
             </div>
             
             <!-- Features -->
-            <ul class="space-y-3 mb-8">
-              <li class="flex items-center text-text-light">
-                <i class="fas fa-check-circle text-gold mr-3"></i>
+            <ul class="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
+              <li class="flex items-center text-text-light text-sm sm:text-base">
+                <i class="fas fa-check-circle text-gold mr-2 sm:mr-3 text-sm sm:text-base"></i>
                 <span>Convenient Merebank location</span>
               </li>
-              <li class="flex items-center text-text-light">
-                <i class="fas fa-dumbbell text-gold mr-3"></i>
+              <li class="flex items-center text-text-light text-sm sm:text-base">
+                <i class="fas fa-dumbbell text-gold mr-2 sm:mr-3 text-sm sm:text-base"></i>
                 <span>Full range of equipment</span>
               </li>
-              <li class="flex items-center text-text-light">
-                <i class="fas fa-handshake text-gold mr-3"></i>
+              <li class="flex items-center text-text-light text-sm sm:text-base">
+                <i class="fas fa-handshake text-gold mr-2 sm:mr-3 text-sm sm:text-base"></i>
                 <span>Family-friendly environment</span>
               </li>
             </ul>
             
             <!-- CTA Button -->
             <a href="/join" 
-               class="inline-flex items-center justify-center w-full bg-gradient-to-r from-gold to-gold-dark text-dark-bg font-bold py-3 px-6 rounded-lg hover:opacity-90 transition-all duration-300">
+               class="inline-flex items-center justify-center w-full bg-gradient-to-r from-gold to-gold-dark text-dark-bg font-bold py-2 sm:py-3 px-4 sm:px-6 rounded-lg hover:opacity-90 transition-all duration-300 text-sm sm:text-base">
               View Merebank
-              <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
+              <i class="fas fa-arrow-right ml-1 sm:ml-2 transition-transform group-hover:translate-x-1 text-sm sm:text-base"></i>
             </a>
           </div>
         </div>
       </div>
       
       <!-- Call to Action -->
-      <div class="text-center mt-12 animate-on-scroll">
-        <p class="text-2xl text-text-light/90 mb-6 max-w-2xl mx-auto font-medium">
+      <div class="text-center mt-8 sm:mt-12 animate-on-scroll">
+        <p class="text-lg sm:text-xl md:text-2xl text-text-light/90 mb-4 sm:mb-6 max-w-2xl mx-auto font-medium">
           <span class="text-gold font-semibold">We are waiting for you!</span> The sooner you start your journey, the better.
         </p>
         
-        <p class="text-xl text-text-light/80 italic max-w-2xl mx-auto">
+        <p class="text-base sm:text-lg md:text-xl text-text-light/80 italic max-w-2xl mx-auto">
           Registering with Elite Health Club is as easy as it can be. All you need to do is:
         </p>
       </div>
@@ -146,73 +147,73 @@ import Main from '../layouts/Main.astro';
   </section>
 
   <!-- ========== JOURNEY STEPS ========== -->
-  <section class="py-12 animate-on-scroll">
+  <section class="py-8 sm:py-12 animate-on-scroll">
     <div class="container mx-auto px-4">
-      <div class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-4">
+      <div class="flex flex-col md:flex-row justify-center items-center gap-4 sm:gap-6 md:gap-4">
         <!-- Step 1 -->
         <div class="text-center step-animate">
-          <div class="w-16 h-16 bg-gold/10 border-2 border-gold/30 rounded-full flex items-center justify-center mx-auto mb-3 hover:scale-110 transition-transform">
-            <i class="fas fa-box-open text-gold text-2xl"></i>
+          <div class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gold/10 border-2 border-gold/30 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3 hover:scale-110 transition-transform">
+            <i class="fas fa-box-open text-gold text-lg sm:text-xl md:text-2xl"></i>
           </div>
-          <h4 class="text-gold font-semibold mb-1">Choose Your Plan</h4>
-          <p class="text-white text-sm">Select membership that fits your goals</p>
+          <h4 class="text-gold font-semibold mb-1 text-sm sm:text-base">Choose Your Plan</h4>
+          <p class="text-white text-xs sm:text-sm">Select membership that fits your goals</p>
         </div>
 
         <!-- Arrow -->
-        <div class="hidden md:block text-gold text-xl arrow-animate">
+        <div class="hidden md:block text-gold text-lg sm:text-xl arrow-animate">
           <i class="fas fa-arrow-right"></i>
         </div>
-        <div class="md:hidden text-gold text-xl my-2">
+        <div class="md:hidden text-gold text-lg sm:text-xl my-1 sm:my-2">
           <i class="fas fa-arrow-down"></i>
         </div>
 
         <!-- Step 2 -->
         <div class="text-center step-animate-delayed">
-          <div class="w-16 h-16 bg-gold/10 border-2 border-gold/30 rounded-full flex items-center justify-center mx-auto mb-3 hover:scale-110 transition-transform">
-            <i class="fas fa-clipboard-check text-gold text-2xl"></i>
+          <div class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gold/10 border-2 border-gold/30 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3 hover:scale-110 transition-transform">
+            <i class="fas fa-clipboard-check text-gold text-lg sm:text-xl md:text-2xl"></i>
           </div>
-          <h4 class="text-gold font-semibold mb-1">Complete Registration</h4>
-          <p class="text-white text-sm">Quick sign-up & payment process</p>
+          <h4 class="text-gold font-semibold mb-1 text-sm sm:text-base">Complete Registration</h4>
+          <p class="text-white text-xs sm:text-sm">Quick sign-up & payment process</p>
         </div>
 
         <!-- Arrow -->
-        <div class="hidden md:block text-gold text-xl arrow-animate-delayed">
+        <div class="hidden md:block text-gold text-lg sm:text-xl arrow-animate-delayed">
           <i class="fas fa-arrow-right"></i>
         </div>
-        <div class="md:hidden text-gold text-xl my-2">
+        <div class="md:hidden text-gold text-lg sm:text-xl my-1 sm:my-2">
           <i class="fas fa-arrow-down"></i>
         </div>
 
         <!-- Step 3 -->
         <div class="text-center step-animate-delayed-2">
-          <div class="w-16 h-16 bg-gold/10 border-2 border-gold/30 rounded-full flex items-center justify-center mx-auto mb-3 hover:scale-110 transition-transform">
-            <i class="fas fa-id-card text-gold text-2xl"></i>
+          <div class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gold/10 border-2 border-gold/30 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3 hover:scale-110 transition-transform">
+            <i class="fas fa-id-card text-gold text-lg sm:text-xl md:text-2xl"></i>
           </div>
-          <h4 class="text-gold font-semibold mb-1">Receive Membership Card</h4>
-          <p class="text-white text-sm">Get personalized Elite access card</p>
+          <h4 class="text-gold font-semibold mb-1 text-sm sm:text-base">Receive Membership Card</h4>
+          <p class="text-white text-xs sm:text-sm">Get personalized Elite access card</p>
         </div>
 
         <!-- Arrow -->
-        <div class="hidden md:block text-gold text-xl arrow-animate-delayed-2">
+        <div class="hidden md:block text-gold text-lg sm:text-xl arrow-animate-delayed-2">
           <i class="fas fa-arrow-right"></i>
         </div>
-        <div class="md:hidden text-gold text-xl my-2">
+        <div class="md:hidden text-gold text-lg sm:text-xl my-1 sm:my-2">
           <i class="fas fa-arrow-down"></i>
         </div>
 
         <!-- Step 4 -->
         <div class="text-center step-animate-delayed-3">
-          <div class="w-16 h-16 bg-gold/10 border-2 border-gold/30 rounded-full flex items-center justify-center mx-auto mb-3 hover:scale-110 transition-transform">
-            <i class="fas fa-dumbbell text-gold text-2xl"></i>
+          <div class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gold/10 border-2 border-gold/30 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3 hover:scale-110 transition-transform">
+            <i class="fas fa-dumbbell text-gold text-lg sm:text-xl md:text-2xl"></i>
           </div>
-          <h4 class="text-gold font-semibold mb-1">Start Training</h4>
-          <p class="text-white text-sm">Begin transformation journey</p>
+          <h4 class="text-gold font-semibold mb-1 text-sm sm:text-base">Start Training</h4>
+          <p class="text-white text-xs sm:text-sm">Begin transformation journey</p>
         </div>
       </div>
       
       <!-- Membership Card Intro -->
-      <div class="text-center mt-12 animate-on-scroll">
-        <p class="text-2xl text-text-light/90 max-w-2xl mx-auto font-medium">
+      <div class="text-center mt-8 sm:mt-12 animate-on-scroll">
+        <p class="text-lg sm:text-xl md:text-2xl text-text-light/90 max-w-2xl mx-auto font-medium">
           After completing these simple steps, you will receive your personalized <span class="text-gold font-semibold">Elite Health Club Membership Card</span>,
           granting you premium access to all our facilities and benefits.
         </p>
@@ -221,40 +222,40 @@ import Main from '../layouts/Main.astro';
   </section>
 
   <!-- Membership Card Section -->
-  <section class="py-12 animate-on-scroll">
+  <section class="py-8 sm:py-12 animate-on-scroll">
     <div class="container mx-auto px-4 text-center">
-      <h2 class="font-montserrat font-bold text-3xl md:text-4xl text-text-light mb-4">
+      <h2 class="font-montserrat font-bold text-2xl sm:text-3xl md:text-4xl text-text-light mb-3 sm:mb-4">
         Your Elite Membership Card
       </h2>
-      <p class="text-text-light mb-8">Personalized access with premium benefits</p>
+      <p class="text-text-light text-sm sm:text-base mb-6 sm:mb-8">Personalized access with premium benefits</p>
       
       <!-- Membership Card -->
       <div class="max-w-md mx-auto">
-        <div class="bg-darker-bg border-2 border-gold/30 rounded-xl p-6 relative overflow-hidden hover:scale-[1.02] transition-transform duration-300">
+        <div class="bg-darker-bg border-2 border-gold/30 rounded-xl p-4 sm:p-6 relative overflow-hidden hover:scale-[1.02] transition-transform duration-300">
           <!-- Card Background -->
           <div class="absolute inset-0 bg-[url('/images/gym-main.jpg')] bg-cover opacity-10"></div>
           
           <!-- Card Content -->
           <div class="relative z-10">
             <!-- Card Header -->
-            <div class="flex justify-between items-center mb-8">
-              <div class="font-montserrat font-extrabold text-gold text-2xl">ELITE</div>
-              <div class="bg-gold/20 text-gold text-xs font-semibold px-3 py-1 rounded-full border border-gold/30">
+            <div class="flex justify-between items-center mb-6 sm:mb-8">
+              <div class="font-montserrat font-extrabold text-gold text-xl sm:text-2xl">ELITE</div>
+              <div class="bg-gold/20 text-gold text-xs font-semibold px-2 sm:px-3 py-1 rounded-full border border-gold/30">
                 PREMIUM
               </div>
             </div>
             
             <!-- Card Body -->
-            <div class="flex items-center gap-4 mb-8">
+            <div class="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
               <!-- Member Photo Circle -->
-              <div class="w-16 h-16 border-2 border-gold/50 rounded-full flex items-center justify-center">
-                <i class="fas fa-dumbbell text-gold text-2xl"></i>
+              <div class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 border-2 border-gold/50 rounded-full flex items-center justify-center">
+                <i class="fas fa-dumbbell text-gold text-lg sm:text-xl md:text-2xl"></i>
               </div>
               
               <!-- Member Info -->
               <div class="text-left">
-                <div class="text-text-light font-bold text-xl">YOUR NAME</div>
-                <div class="text-gold text-sm">FITNESS MEMBER</div>
+                <div class="text-text-light font-bold text-lg sm:text-xl">YOUR NAME</div>
+                <div class="text-gold text-xs sm:text-sm">FITNESS MEMBER</div>
                 <div class="text-text-light text-xs opacity-80">ID: ELITE-2024</div>
               </div>
             </div>
@@ -270,42 +271,36 @@ import Main from '../layouts/Main.astro';
     </div>
   </section>
 
-  <!-- Video Section -->
-  <section class="py-12 animate-on-scroll">
+  <!-- Video Section - REMOVED PLAY OVERLAY -->
+  <section class="py-8 sm:py-12 animate-on-scroll">
     <div class="container mx-auto px-4 text-center">
-      <h2 class="font-montserrat font-bold text-3xl md:text-4xl text-text-light mb-4">
+      <h2 class="font-montserrat font-bold text-2xl sm:text-3xl md:text-4xl text-text-light mb-3 sm:mb-4">
         Elite Training Experience
       </h2>
-      <p class="text-text-light mb-8">Professional workouts & techniques</p>
+      <p class="text-text-light text-sm sm:text-base mb-6 sm:mb-8">Professional workouts & techniques</p>
       
       <!-- Single Video -->
       <div class="max-w-2xl mx-auto">
         <div class="bg-darker-bg border border-gold/20 rounded-xl overflow-hidden hover:scale-[1.02] transition-transform duration-300">
-          <!-- Video Container -->
-          <div class="relative group">
+          <!-- Video Container - NO CUSTOM PLAY OVERLAY -->
+          <div class="relative">
             <video 
               id="training-video"
-              class="w-full h-64 md:h-80 object-cover cursor-pointer"
+              class="w-full h-48 sm:h-56 md:h-64 lg:h-80 object-cover"
               controls
               playsinline
               preload="metadata"
+              poster="/images/gym-training-2.jpg"
             >
               <source src="/videos/workout2.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
-            
-            <!-- Custom Play Button (optional) -->
-            <div id="play-overlay" class="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/30 transition-all cursor-pointer">
-              <div class="w-20 h-20 bg-gold/90 rounded-full flex items-center justify-center transform group-hover:scale-110 transition-transform">
-                <i class="fas fa-play text-white text-3xl ml-1"></i>
-              </div>
-            </div>
           </div>
           
           <!-- Video Caption -->
-          <div class="p-6">
-            <h5 class="text-gold text-xl font-semibold mb-2">Deadlift Party</h5>
-            <p class="text-text-light text-sm">Master proper deadlift form with our expert trainers</p>
+          <div class="p-4 sm:p-6">
+            <h5 class="text-gold text-lg sm:text-xl font-semibold mb-2">Deadlift Party</h5>
+            <p class="text-text-light text-xs sm:text-sm">Master proper deadlift form with our expert trainers</p>
           </div>
         </div>
       </div>
@@ -313,33 +308,33 @@ import Main from '../layouts/Main.astro';
   </section>
 
   <!-- Contact CTA Section -->
-  <section class="py-12 animate-on-scroll">
+  <section class="py-8 sm:py-12 animate-on-scroll">
     <div class="container mx-auto px-4 text-center">
-      <h2 class="font-montserrat font-bold text-3xl md:text-4xl text-text-light mb-4">
+      <h2 class="font-montserrat font-bold text-2xl sm:text-3xl md:text-4xl text-text-light mb-3 sm:mb-4">
         Ready to Transform?
       </h2>
-      <p class="text-text-light text-xl mb-8">Start your Elite journey today</p>
+      <p class="text-text-light text-base sm:text-lg md:text-xl mb-6 sm:mb-8">Start your Elite journey today</p>
       
       <!-- Contact Buttons -->
-      <div class="flex flex-col md:flex-row gap-4 justify-center max-w-2xl mx-auto">
+      <div class="flex flex-col md:flex-row gap-3 sm:gap-4 justify-center max-w-2xl mx-auto">
         <!-- WhatsApp Button -->
         <a href="https://wa.me/27655172764" 
            target="_blank"
-           class="bg-gold text-dark-bg font-bold text-lg px-8 py-4 rounded-lg hover:bg-gold-dark transition-colors flex items-center justify-center transform hover:scale-105 transition-transform duration-300">
-          <i class="fab fa-whatsapp mr-3 text-2xl"></i>
+           class="bg-gold text-dark-bg font-bold text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:bg-gold-dark transition-colors flex items-center justify-center transform hover:scale-105 transition-transform duration-300">
+          <i class="fab fa-whatsapp mr-2 sm:mr-3 text-lg sm:text-2xl"></i>
           Chat on WhatsApp
         </a>
         
         <!-- Call Button -->
         <a href="tel:+27655172764"
-           class="border-2 border-gold text-gold font-bold text-lg px-8 py-4 rounded-lg hover:bg-gold hover:text-dark-bg transition-colors flex items-center justify-center transform hover:scale-105 transition-transform duration-300">
-          <i class="fas fa-phone mr-3 text-2xl"></i>
+           class="border-2 border-gold text-gold font-bold text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:bg-gold hover:text-dark-bg transition-colors flex items-center justify-center transform hover:scale-105 transition-transform duration-300">
+          <i class="fas fa-phone mr-2 sm:mr-3 text-lg sm:text-2xl"></i>
           Call Now
         </a>
       </div>
       
       <!-- Final Message -->
-      <p class="text-text-light/80 text-xl mt-8 max-w-2xl mx-auto font-medium">
+      <p class="text-text-light/80 text-base sm:text-lg md:text-xl mt-6 sm:mt-8 max-w-2xl mx-auto font-medium">
         Join the Elite family today and experience fitness transformation like never before.
         Your journey to a healthier, stronger you starts here.
       </p>
@@ -449,92 +444,65 @@ import Main from '../layouts/Main.astro';
     animation: floatUp 0.6s ease-out 0.5s forwards;
   }
   
-      /* Mobile optimizations */
-    @media (max-width: 768px) {
-        .min-h-screen h1 {
-            font-size: 3.5rem !important;
-            margin-bottom: 1rem !important;
-        }
-        
-        .min-h-screen h2 {
-            font-size: 1.5rem !important;
-            margin-bottom: 2rem !important;
-        }
-        
-        /* MINIMAL SPACE - Hero to Description */
-        .pt-4.pb-8.-mt-20 {
-            margin-top: -5rem !important; /* More negative margin */
-            padding-top: 0.5rem !important; /* Minimal padding */
-        }
-        
-        .text-2xl.md\:text-3xl {
-            font-size: 1.4rem !important;
-            line-height: 1.6 !important;
-        }
-        
-        .text-xl {
-            font-size: 1.1rem !important;
-        }
-        
-        .text-lg {
-            font-size: 1rem !important;
-        }
-        
-        .branch-card {
-            padding: 1.25rem !important;
-        }
+  /* Mobile optimizations */
+  @media (max-width: 768px) {
+    /* TIGHTEN HERO SECTION */
+    .min-h-\[80vh\] {
+      min-height: 70vh !important;
     }
     
-    /* Desktop optimizations */
-    @media (min-width: 769px) {
-        .pt-4.pb-8.-mt-20 {
-            margin-top: -8rem !important; /* Closer on desktop */
-        }
+    .min-h-\[80vh\] h1 {
+      font-size: 2.5rem !important;
+      margin-bottom: 0.5rem !important;
+      line-height: 1.1 !important;
     }
+    
+    .min-h-\[80vh\] h2 {
+      font-size: 1.1rem !important;
+      margin-bottom: 1.5rem !important;
+    }
+    
+    /* MINIMAL SPACE - Hero to Description */
+    .pt-2.pb-6.-mt-16 {
+      margin-top: -3rem !important;
+      padding-top: 0 !important;
+    }
+    
+    .text-lg.sm\:text-xl.md\:text-2xl.lg\:text-3xl {
+      font-size: 1.1rem !important;
+      line-height: 1.5 !important;
+    }
+    
+    .text-base.sm\:text-lg.md\:text-xl {
+      font-size: 0.95rem !important;
+    }
+    
+    .text-sm.sm\:text-base.md\:text-lg {
+      font-size: 0.9rem !important;
+    }
+    
+    /* Adjust card padding */
+    .branch-card {
+      padding: 1rem !important;
+    }
+    
+    /* Video section */
+    .h-48 {
+      height: 180px !important;
+    }
+  }
   
   /* Desktop optimizations */
   @media (min-width: 769px) {
-    .py-8.-mt-12 {
-      margin-top: -6rem !important; /* Even closer on desktop */
+    .pt-2.pb-6.-mt-16 {
+      margin-top: -6rem !important;
     }
   }
 </style>
 
 <script is:inline>
-  // Video player functionality
+  // Scroll animations
   document.addEventListener('DOMContentLoaded', function() {
-    const video = document.getElementById('training-video');
-    const playOverlay = document.getElementById('play-overlay');
-    
-    if (video && playOverlay) {
-      // Click overlay to play
-      playOverlay.addEventListener('click', function() {
-        video.play();
-        playOverlay.style.display = 'none';
-      });
-      
-      // Click video to play/pause
-      video.addEventListener('click', function() {
-        if (video.paused) {
-          video.play();
-          playOverlay.style.display = 'none';
-        } else {
-          video.pause();
-          playOverlay.style.display = 'flex';
-        }
-      });
-      
-      // Show overlay when video ends
-      video.addEventListener('ended', function() {
-        playOverlay.style.display = 'flex';
-      });
-      
-      // Show overlay when video pauses
-      video.addEventListener('pause', function() {
-        playOverlay.style.display = 'flex';
-      });
-    }
-    
     // Scroll animations
     const animateOnScroll = () => {
       const elements = document.querySelectorAll('.animate-on-scroll');
