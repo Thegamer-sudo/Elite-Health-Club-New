@@ -1,5 +1,5 @@
 ---
-// Elite Health Club Chatbot - Same logic as old, modern styling
+// Elite Health Club Chatbot - TypeScript compatible
 ---
 
 <!-- Chatbot Structure -->
@@ -81,9 +81,10 @@
 </div>
 
 <script>
-    // Elite Chatbot - Exact same logic as old site.js
+    // TypeScript compatible Elite Chatbot class
     class EliteChatbot {
         constructor() {
+            // Define properties with TypeScript-friendly initialization
             this.userData = {
                 name: '',
                 selectedPackage: null,
@@ -486,7 +487,7 @@ Please confirm my booking!`;
         }
 
         sendMessage() {
-            const input = document.getElementById('chatbot-input');
+            const input = document.getElementById('chatbot-input') as HTMLInputElement;
             if (!input) return;
             
             const message = input.value.trim();

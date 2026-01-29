@@ -1,19 +1,19 @@
 ---
-// Header Component
+// Header Component with working mobile dropdown
 ---
 
 <nav class="fixed top-0 left-0 w-full bg-black py-4 z-50 border-b border-gold">
   <div class="container mx-auto px-4">
     <div class="flex items-center justify-between">
-     <!-- Logo -->
-<a href="/" class="flex items-center">
-  <img src="/images/elite-logo.png" alt="Elite Health Club" class="h-10 mr-3">
-  <span class="font-montserrat font-extrabold text-gold text-xl uppercase tracking-wider">
-    ELITE HEALTH CLUB
-  </span>
-</a>
+      <!-- Logo -->
+      <a href="/" class="flex items-center">
+        <img src="/images/elite-logo.png" alt="Elite Health Club" class="h-10 mr-3">
+        <span class="font-montserrat font-extrabold text-gold text-xl uppercase tracking-wider">
+          ELITE HEALTH CLUB
+        </span>
+      </a>
 
-      <!-- Navigation -->
+      <!-- Desktop Navigation -->
       <div class="hidden md:flex items-center space-x-6">
         <a href="/" class="text-white font-medium hover:text-gold transition-colors">Home</a>
         <a href="/join" class="text-white font-medium hover:text-gold transition-colors">Join</a>
@@ -25,9 +25,134 @@
       </div>
 
       <!-- Mobile Menu Button -->
-      <button class="md:hidden text-white">
-        <i class="fas fa-bars text-xl"></i>
+      <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+        <i id="menu-icon" class="fas fa-bars text-xl"></i>
       </button>
+    </div>
+
+    <!-- Mobile Menu (Hidden by default) -->
+    <div id="mobile-menu" class="md:hidden hidden mt-4 pb-4">
+      <div class="flex flex-col space-y-4">
+        <a href="/" class="text-white font-medium hover:text-gold transition-colors py-2 border-b border-gray-800">Home</a>
+        <a href="/join" class="text-white font-medium hover:text-gold transition-colors py-2 border-b border-gray-800">Join</a>
+        <a href="/about" class="text-white font-medium hover:text-gold transition-colors py-2 border-b border-gray-800">About</a>
+        <a href="/contact" class="text-white font-medium hover:text-gold transition-colors py-2 border-b border-gray-800">Contact</a>
+        <a href="/join" class="bg-gold text-black font-semibold px-6 py-3 rounded-lg hover:bg-gold-dark transition-colors text-center mt-2">
+          Join Now
+        </a>
+      </div>
     </div>
   </div>
 </nav>
+
+<script is:inline>
+  // Mobile menu functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    
+    if (mobileMenuButton && mobileMenu && menuIcon) {
+      let isMenuOpen = false;
+      
+      // Toggle mobile menu
+      mobileMenuButton.addEventListener('click', function() {
+        isMenuOpen = !isMenuOpen;
+        
+        if (isMenuOpen) {
+          // Open menu
+          mobileMenu.classList.remove('hidden');
+          mobileMenu.classList.add('block');
+          menuIcon.classList.remove('fa-bars');
+          menuIcon.classList.add('fa-times');
+          document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+        } else {
+          // Close menu
+          mobileMenu.classList.remove('block');
+          mobileMenu.classList.add('hidden');
+          menuIcon.classList.remove('fa-times');
+          menuIcon.classList.add('fa-bars');
+          document.body.style.overflow = ''; // Restore scrolling
+        }
+      });
+      
+      // Close menu when clicking a link
+      const mobileLinks = mobileMenu.querySelectorAll('a');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          mobileMenu.classList.remove('block');
+          mobileMenu.classList.add('hidden');
+          menuIcon.classList.remove('fa-times');
+          menuIcon.classList.add('fa-bars');
+          document.body.style.overflow = '';
+          isMenuOpen = false;
+        });
+      });
+      
+      // Close menu when clicking outside
+      document.addEventListener('click', function(event) {
+        if (isMenuOpen && 
+            !mobileMenu.contains(event.target) && 
+            !mobileMenuButton.contains(event.target)) {
+          mobileMenu.classList.remove('block');
+          mobileMenu.classList.add('hidden');
+          menuIcon.classList.remove('fa-times');
+          menuIcon.classList.add('fa-bars');
+          document.body.style.overflow = '';
+          isMenuOpen = false;
+        }
+      });
+      
+      // Close menu on escape key
+      document.addEventListener('keydown', function(event) {
+        if (isMenuOpen && event.key === 'Escape') {
+          mobileMenu.classList.remove('block');
+          mobileMenu.classList.add('hidden');
+          menuIcon.classList.remove('fa-times');
+          menuIcon.classList.add('fa-bars');
+          document.body.style.overflow = '';
+          isMenuOpen = false;
+        }
+      });
+    }
+    
+    // Add scroll effect to header
+    window.addEventListener('scroll', function() {
+      const nav = document.querySelector('nav');
+      if (window.scrollY > 50) {
+        nav.classList.add('bg-black/95', 'backdrop-blur-sm');
+      } else {
+        nav.classList.remove('bg-black/95', 'backdrop-blur-sm');
+      }
+    });
+  });
+</script>
+
+<style>
+  /* Smooth mobile menu animation */
+  #mobile-menu {
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Prevent body scroll when menu is open */
+  body.menu-open {
+    overflow: hidden;
+  }
+  
+  /* Menu icon transition */
+  #menu-icon {
+    transition: transform 0.3s ease;
+  }
+  
+  /* Active link styling */
+  nav a.active {
+    color: #D4AF37;
+    font-weight: 600;
+  }
+  
+  /* Mobile menu backdrop */
+  #mobile-menu {
+    background: rgba(0, 0, 0, 0.98);
+    backdrop-filter: blur(10px);
+  }
+</style>

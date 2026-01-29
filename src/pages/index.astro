@@ -6,15 +6,15 @@ import Main from '../layouts/Main.astro';
   <!-- Hero Section -->
   <section class="min-h-screen flex items-center justify-center">
     <div class="container mx-auto px-4 text-center">
-      <h1 class="font-montserrat font-black text-5xl md:text-7xl lg:text-8xl uppercase mb-6 text-gold">
+      <h1 class="font-montserrat font-black text-5xl md:text-7xl lg:text-8xl uppercase mb-6 text-gold animate-float">
         Your Body. Your Discipline.
       </h1>
       
-      <h2 class="text-2xl md:text-3xl text-white font-light mb-10">
+      <h2 class="text-2xl md:text-3xl text-white font-light mb-10 animate-float-delayed">
         Welcome to Elite Health Club.
       </h2>
       
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <div class="flex flex-col sm:flex-row gap-4 justify-center animate-float-delayed-2">
         <a href="/join" class="bg-gold text-black font-bold text-lg px-8 py-4 rounded-lg hover:bg-gold-dark transition-colors transform hover:scale-105 transition-transform duration-300">
           Start Your Journey
         </a>
@@ -26,28 +26,35 @@ import Main from '../layouts/Main.astro';
     </div>
   </section>
 
-  <!-- ========== SIMPLE INTRODUCTION ========== -->
-  <section class="py-16">
+  <!-- ========== PERFECT INTRODUCTION ========== -->
+  <section class="py-8 -mt-12 animate-on-scroll">
     <div class="container mx-auto px-4">
       <div class="max-w-3xl mx-auto text-center">
-        <p class="text-lg md:text-xl text-text-light/90 leading-relaxed">
-          At <span class="text-gold font-semibold">Elite Health Club</span>, we believe fitness transforms more than just your body—it builds <span class="text-gold">confidence, discipline, and community</span>. 
+        <p class="text-2xl md:text-3xl text-text-light/90 leading-relaxed font-medium">
+          At <span class="text-gold font-semibold">Elite Health Club</span>, we believe fitness transforms more than just your body—it builds <span class="text-gold">confidence, discipline, and community</span>.
+        </p>
+        
+        <p class="text-xl text-text-light/80 mt-6">
           Our two premium locations offer state-of-the-art facilities with certified trainers ready to guide every step of your journey.
+        </p>
+        
+        <p class="text-lg text-text-light/70 mt-4">
+          Elite operates from two strategic locations across Durban. Below are our branches:
         </p>
       </div>
     </div>
   </section>
 
-  <!-- ========== BRANCH SELECTION CARDS ========== -->
-  <section class="py-16">
+  <!-- ========== BRANCH CARDS ========== -->
+  <section class="py-8 animate-on-scroll">
     <div class="container mx-auto px-4">
       <h2 class="font-montserrat font-bold text-3xl md:text-4xl text-center text-text-light mb-12">
-        Choose Your <span class="text-gold">Branch</span>
+        Our <span class="text-gold">Branches</span>
       </h2>
       
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
         <!-- Overport Branch Card -->
-        <div class="branch-card group relative overflow-hidden border-2 border-gold/30 rounded-2xl p-8 transition-all duration-300 hover:border-gold hover:scale-[1.02]">
+        <div class="branch-card animate-card group relative overflow-hidden border-2 border-gold/30 rounded-2xl p-8 transition-all duration-300 hover:border-gold hover:scale-[1.02]">
           <div class="relative z-10">
             <!-- Header -->
             <div class="flex items-center justify-between mb-6">
@@ -76,17 +83,17 @@ import Main from '../layouts/Main.astro';
               </li>
             </ul>
             
-            <!-- CTA Button - SIMPLE LINK -->
+            <!-- CTA Button -->
             <a href="/join" 
                class="inline-flex items-center justify-center w-full bg-gradient-to-r from-gold to-gold-dark text-dark-bg font-bold py-3 px-6 rounded-lg hover:opacity-90 transition-all duration-300">
-              View Overport Pricing
-              <i class="fas fa-arrow-right ml-2"></i>
+              View Overport
+              <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
             </a>
           </div>
         </div>
         
         <!-- Merebank Branch Card -->
-        <div class="branch-card group relative overflow-hidden border-2 border-gold/30 rounded-2xl p-8 transition-all duration-300 hover:border-gold hover:scale-[1.02]">
+        <div class="branch-card animate-card-delayed group relative overflow-hidden border-2 border-gold/30 rounded-2xl p-8 transition-all duration-300 hover:border-gold hover:scale-[1.02]">
           <div class="relative z-10">
             <!-- Header -->
             <div class="flex items-center justify-between mb-6">
@@ -115,25 +122,36 @@ import Main from '../layouts/Main.astro';
               </li>
             </ul>
             
-            <!-- CTA Button - SIMPLE LINK -->
+            <!-- CTA Button -->
             <a href="/join" 
                class="inline-flex items-center justify-center w-full bg-gradient-to-r from-gold to-gold-dark text-dark-bg font-bold py-3 px-6 rounded-lg hover:opacity-90 transition-all duration-300">
-              View Merebank Pricing
-              <i class="fas fa-arrow-right ml-2"></i>
+              View Merebank
+              <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
             </a>
           </div>
         </div>
       </div>
+      
+      <!-- Call to Action -->
+      <div class="text-center mt-12 animate-on-scroll">
+        <p class="text-2xl text-text-light/90 mb-6 max-w-2xl mx-auto font-medium">
+          <span class="text-gold font-semibold">We are waiting for you!</span> The sooner you start your journey, the better.
+        </p>
+        
+        <p class="text-xl text-text-light/80 italic max-w-2xl mx-auto">
+          Registering with Elite Health Club is as easy as it can be. All you need to do is:
+        </p>
+      </div>
     </div>
   </section>
 
-  <!-- Journey Steps Section -->
-  <section class="py-16">
+  <!-- ========== JOURNEY STEPS ========== -->
+  <section class="py-12 animate-on-scroll">
     <div class="container mx-auto px-4">
       <div class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-4">
         <!-- Step 1 -->
-        <div class="text-center">
-          <div class="w-16 h-16 bg-gold/10 border-2 border-gold/30 rounded-full flex items-center justify-center mx-auto mb-3">
+        <div class="text-center step-animate">
+          <div class="w-16 h-16 bg-gold/10 border-2 border-gold/30 rounded-full flex items-center justify-center mx-auto mb-3 hover:scale-110 transition-transform">
             <i class="fas fa-box-open text-gold text-2xl"></i>
           </div>
           <h4 class="text-gold font-semibold mb-1">Choose Your Plan</h4>
@@ -141,7 +159,7 @@ import Main from '../layouts/Main.astro';
         </div>
 
         <!-- Arrow -->
-        <div class="hidden md:block text-gold text-xl">
+        <div class="hidden md:block text-gold text-xl arrow-animate">
           <i class="fas fa-arrow-right"></i>
         </div>
         <div class="md:hidden text-gold text-xl my-2">
@@ -149,8 +167,8 @@ import Main from '../layouts/Main.astro';
         </div>
 
         <!-- Step 2 -->
-        <div class="text-center">
-          <div class="w-16 h-16 bg-gold/10 border-2 border-gold/30 rounded-full flex items-center justify-center mx-auto mb-3">
+        <div class="text-center step-animate-delayed">
+          <div class="w-16 h-16 bg-gold/10 border-2 border-gold/30 rounded-full flex items-center justify-center mx-auto mb-3 hover:scale-110 transition-transform">
             <i class="fas fa-clipboard-check text-gold text-2xl"></i>
           </div>
           <h4 class="text-gold font-semibold mb-1">Complete Registration</h4>
@@ -158,7 +176,7 @@ import Main from '../layouts/Main.astro';
         </div>
 
         <!-- Arrow -->
-        <div class="hidden md:block text-gold text-xl">
+        <div class="hidden md:block text-gold text-xl arrow-animate-delayed">
           <i class="fas fa-arrow-right"></i>
         </div>
         <div class="md:hidden text-gold text-xl my-2">
@@ -166,8 +184,8 @@ import Main from '../layouts/Main.astro';
         </div>
 
         <!-- Step 3 -->
-        <div class="text-center">
-          <div class="w-16 h-16 bg-gold/10 border-2 border-gold/30 rounded-full flex items-center justify-center mx-auto mb-3">
+        <div class="text-center step-animate-delayed-2">
+          <div class="w-16 h-16 bg-gold/10 border-2 border-gold/30 rounded-full flex items-center justify-center mx-auto mb-3 hover:scale-110 transition-transform">
             <i class="fas fa-id-card text-gold text-2xl"></i>
           </div>
           <h4 class="text-gold font-semibold mb-1">Receive Membership Card</h4>
@@ -175,7 +193,7 @@ import Main from '../layouts/Main.astro';
         </div>
 
         <!-- Arrow -->
-        <div class="hidden md:block text-gold text-xl">
+        <div class="hidden md:block text-gold text-xl arrow-animate-delayed-2">
           <i class="fas fa-arrow-right"></i>
         </div>
         <div class="md:hidden text-gold text-xl my-2">
@@ -183,19 +201,27 @@ import Main from '../layouts/Main.astro';
         </div>
 
         <!-- Step 4 -->
-        <div class="text-center">
-          <div class="w-16 h-16 bg-gold/10 border-2 border-gold/30 rounded-full flex items-center justify-center mx-auto mb-3">
+        <div class="text-center step-animate-delayed-3">
+          <div class="w-16 h-16 bg-gold/10 border-2 border-gold/30 rounded-full flex items-center justify-center mx-auto mb-3 hover:scale-110 transition-transform">
             <i class="fas fa-dumbbell text-gold text-2xl"></i>
           </div>
           <h4 class="text-gold font-semibold mb-1">Start Training</h4>
           <p class="text-white text-sm">Begin transformation journey</p>
         </div>
       </div>
+      
+      <!-- Membership Card Intro -->
+      <div class="text-center mt-12 animate-on-scroll">
+        <p class="text-2xl text-text-light/90 max-w-2xl mx-auto font-medium">
+          After completing these simple steps, you will receive your personalized <span class="text-gold font-semibold">Elite Health Club Membership Card</span>,
+          granting you premium access to all our facilities and benefits.
+        </p>
+      </div>
     </div>
   </section>
 
   <!-- Membership Card Section -->
-  <section class="py-16">
+  <section class="py-12 animate-on-scroll">
     <div class="container mx-auto px-4 text-center">
       <h2 class="font-montserrat font-bold text-3xl md:text-4xl text-text-light mb-4">
         Your Elite Membership Card
@@ -204,7 +230,7 @@ import Main from '../layouts/Main.astro';
       
       <!-- Membership Card -->
       <div class="max-w-md mx-auto">
-        <div class="bg-darker-bg border-2 border-gold/30 rounded-xl p-6 relative overflow-hidden">
+        <div class="bg-darker-bg border-2 border-gold/30 rounded-xl p-6 relative overflow-hidden hover:scale-[1.02] transition-transform duration-300">
           <!-- Card Background -->
           <div class="absolute inset-0 bg-[url('/images/gym-main.jpg')] bg-cover opacity-10"></div>
           
@@ -245,7 +271,7 @@ import Main from '../layouts/Main.astro';
   </section>
 
   <!-- Video Section -->
-  <section class="py-16">
+  <section class="py-12 animate-on-scroll">
     <div class="container mx-auto px-4 text-center">
       <h2 class="font-montserrat font-bold text-3xl md:text-4xl text-text-light mb-4">
         Elite Training Experience
@@ -254,7 +280,7 @@ import Main from '../layouts/Main.astro';
       
       <!-- Single Video -->
       <div class="max-w-2xl mx-auto">
-        <div class="bg-darker-bg border border-gold/20 rounded-xl overflow-hidden">
+        <div class="bg-darker-bg border border-gold/20 rounded-xl overflow-hidden hover:scale-[1.02] transition-transform duration-300">
           <!-- Video Container -->
           <div class="relative group">
             <video 
@@ -279,6 +305,7 @@ import Main from '../layouts/Main.astro';
           <!-- Video Caption -->
           <div class="p-6">
             <h5 class="text-gold text-xl font-semibold mb-2">Deadlift Party</h5>
+            <p class="text-text-light text-sm">Master proper deadlift form with our expert trainers</p>
           </div>
         </div>
       </div>
@@ -286,7 +313,7 @@ import Main from '../layouts/Main.astro';
   </section>
 
   <!-- Contact CTA Section -->
-  <section class="py-16">
+  <section class="py-12 animate-on-scroll">
     <div class="container mx-auto px-4 text-center">
       <h2 class="font-montserrat font-bold text-3xl md:text-4xl text-text-light mb-4">
         Ready to Transform?
@@ -310,12 +337,166 @@ import Main from '../layouts/Main.astro';
           Call Now
         </a>
       </div>
+      
+      <!-- Final Message -->
+      <p class="text-text-light/80 text-xl mt-8 max-w-2xl mx-auto font-medium">
+        Join the Elite family today and experience fitness transformation like never before.
+        Your journey to a healthier, stronger you starts here.
+      </p>
     </div>
   </section>
 </Main>
 
+<style>
+  /* ========== ANIMATIONS ========== */
+  @keyframes floatUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  /* Hero animations */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-float-delayed {
+    animation: float 6s ease-in-out infinite 0.5s;
+  }
+  
+  .animate-float-delayed-2 {
+    animation: float 6s ease-in-out infinite 1s;
+  }
+  
+  /* Scroll animations */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+  }
+  
+  .animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Step animations */
+  .step-animate {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: floatUp 0.6s ease-out 0.2s forwards;
+  }
+  
+  .step-animate-delayed {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: floatUp 0.6s ease-out 0.4s forwards;
+  }
+  
+  .step-animate-delayed-2 {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: floatUp 0.6s ease-out 0.6s forwards;
+  }
+  
+  .step-animate-delayed-3 {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: floatUp 0.6s ease-out 0.8s forwards;
+  }
+  
+  /* Arrow animations */
+  .arrow-animate {
+    opacity: 0;
+    animation: floatUp 0.6s ease-out 0.3s forwards;
+  }
+  
+  .arrow-animate-delayed {
+    opacity: 0;
+    animation: floatUp 0.6s ease-out 0.5s forwards;
+  }
+  
+  .arrow-animate-delayed-2 {
+    opacity: 0;
+    animation: floatUp 0.6s ease-out 0.7s forwards;
+  }
+  
+  /* Card animations */
+  .branch-card {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  
+  .animate-card {
+    animation: floatUp 0.6s ease-out 0.3s forwards;
+  }
+  
+  .animate-card-delayed {
+    animation: floatUp 0.6s ease-out 0.5s forwards;
+  }
+  
+  /* Mobile optimizations */
+  @media (max-width: 768px) {
+    .min-h-screen h1 {
+      font-size: 3.5rem !important;
+      margin-bottom: 1rem !important;
+    }
+    
+    .min-h-screen h2 {
+      font-size: 1.5rem !important;
+      margin-bottom: 2rem !important;
+    }
+    
+    /* SIGNIFICANTLY REDUCED SPACE - Hero to Description */
+    .py-8.-mt-12 {
+      margin-top: -4rem !important; /* Increased negative margin */
+      padding-top: 1rem !important; /* Reduced padding */
+    }
+    
+    /* Larger description font size on mobile */
+    .text-2xl.md\\:text-3xl {
+      font-size: 1.5rem !important; /* Increased from 1.25rem */
+      line-height: 1.7 !important;
+    }
+    
+    .text-xl {
+      font-size: 1.2rem !important;
+    }
+    
+    .text-lg {
+      font-size: 1.1rem !important;
+    }
+    
+    /* Adjust card padding */
+    .branch-card {
+      padding: 1.5rem !important;
+    }
+  }
+  
+  /* Desktop optimizations */
+  @media (min-width: 769px) {
+    .py-8.-mt-12 {
+      margin-top: -6rem !important; /* Even closer on desktop */
+    }
+  }
+</style>
+
 <script is:inline>
-  // Simple video player functionality
+  // Video player functionality
   document.addEventListener('DOMContentLoaded', function() {
     const video = document.getElementById('training-video');
     const playOverlay = document.getElementById('play-overlay');
@@ -346,6 +527,45 @@ import Main from '../layouts/Main.astro';
       // Show overlay when video pauses
       video.addEventListener('pause', function() {
         playOverlay.style.display = 'flex';
+      });
+    }
+    
+    // Scroll animations
+    const animateOnScroll = () => {
+      const elements = document.querySelectorAll('.animate-on-scroll');
+      
+      elements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 150;
+        
+        if (elementTop < window.innerHeight - elementVisible) {
+          element.classList.add('visible');
+        }
+      });
+    };
+    
+    // Initial check
+    animateOnScroll();
+    
+    // Check on scroll
+    window.addEventListener('scroll', animateOnScroll);
+    
+    // Mobile menu fix
+    const navbarToggle = document.querySelector('.navbar-toggler');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+    
+    if (navbarToggle && navbarCollapse) {
+      navbarToggle.addEventListener('click', function() {
+        navbarCollapse.classList.toggle('show');
+      });
+      
+      // Close menu when clicking outside on mobile
+      document.addEventListener('click', function(event) {
+        if (window.innerWidth <= 768 && 
+            !event.target.closest('.navbar') && 
+            navbarCollapse.classList.contains('show')) {
+          navbarCollapse.classList.remove('show');
+        }
       });
     }
   });
