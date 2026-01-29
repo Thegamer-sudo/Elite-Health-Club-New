@@ -3,15 +3,15 @@ import Main from '../layouts/Main.astro';
 ---
 
 <Main>
-  <!-- Hero Section - REDUCED TOP SPACING -->
-  <section class="min-h-[80vh] sm:min-h-screen flex items-center justify-center pt-12 sm:pt-0">
+  <!-- Hero Section - MOVED EVEN CLOSER TO TOP -->
+  <section class="min-h-[70vh] sm:min-h-screen flex items-center justify-center pt-6 sm:pt-0">
     <div class="container mx-auto px-4 text-center">
-      <!-- MAIN HEADING - MOVED CLOSER TO TOP -->
-      <h1 class="font-montserrat font-black text-4xl sm:text-5xl md:text-7xl lg:text-8xl uppercase mb-4 sm:mb-6 text-gold animate-float">
+      <!-- MAIN HEADING - CLOSER TO HEADER -->
+      <h1 class="font-montserrat font-black text-4xl sm:text-5xl md:text-7xl lg:text-8xl uppercase mb-3 sm:mb-6 text-gold animate-float">
         Your Body. Your Discipline.
       </h1>
       
-      <h2 class="text-xl sm:text-2xl md:text-3xl text-white font-light mb-6 sm:mb-10 animate-float-delayed">
+      <h2 class="text-xl sm:text-2xl md:text-3xl text-white font-light mb-5 sm:mb-10 animate-float-delayed">
         Welcome to Elite Health Club.
       </h2>
       
@@ -28,7 +28,7 @@ import Main from '../layouts/Main.astro';
   </section>
 
   <!-- ========== PERFECT INTRODUCTION ========== -->
-  <section class="pt-2 pb-6 -mt-16 sm:-mt-20 md:-mt-24 animate-on-scroll">
+  <section class="pt-2 pb-6 -mt-20 sm:-mt-24 md:-mt-28 animate-on-scroll">
     <div class="container mx-auto px-4">
       <div class="max-w-3xl mx-auto text-center">
         <p class="text-lg sm:text-xl md:text-2xl lg:text-3xl text-text-light/90 leading-relaxed font-medium">
@@ -271,7 +271,7 @@ import Main from '../layouts/Main.astro';
     </div>
   </section>
 
-  <!-- Video Section - REMOVED PLAY OVERLAY -->
+  <!-- Video Section - FIXED: NO POSTER, NO EXTRA TEXT -->
   <section class="py-8 sm:py-12 animate-on-scroll">
     <div class="container mx-auto px-4 text-center">
       <h2 class="font-montserrat font-bold text-2xl sm:text-3xl md:text-4xl text-text-light mb-3 sm:mb-4">
@@ -282,7 +282,7 @@ import Main from '../layouts/Main.astro';
       <!-- Single Video -->
       <div class="max-w-2xl mx-auto">
         <div class="bg-darker-bg border border-gold/20 rounded-xl overflow-hidden hover:scale-[1.02] transition-transform duration-300">
-          <!-- Video Container - NO CUSTOM PLAY OVERLAY -->
+          <!-- Video Container - NO POSTER, NO CUSTOM PLAY OVERLAY -->
           <div class="relative">
             <video 
               id="training-video"
@@ -290,17 +290,15 @@ import Main from '../layouts/Main.astro';
               controls
               playsinline
               preload="metadata"
-              poster="/images/gym-training-2.jpg"
             >
               <source src="/videos/workout2.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
           </div>
           
-          <!-- Video Caption -->
+          <!-- Video Caption - JUST "Deadlift Party" -->
           <div class="p-4 sm:p-6">
-            <h5 class="text-gold text-lg sm:text-xl font-semibold mb-2">Deadlift Party</h5>
-            <p class="text-text-light text-xs sm:text-sm">Master proper deadlift form with our expert trainers</p>
+            <h5 class="text-gold text-lg sm:text-xl font-semibold">Deadlift Party</h5>
           </div>
         </div>
       </div>
@@ -446,25 +444,24 @@ import Main from '../layouts/Main.astro';
   
   /* Mobile optimizations */
   @media (max-width: 768px) {
-    /* TIGHTEN HERO SECTION */
-    .min-h-\[80vh\] {
-      min-height: 70vh !important;
+    /* TIGHTEN HERO SECTION MORE */
+    .min-h-\[70vh\] {
+      min-height: 65vh !important;
+      padding-top: 0.5rem !important;
     }
     
-    .min-h-\[80vh\] h1 {
-      font-size: 2.5rem !important;
-      margin-bottom: 0.5rem !important;
-      line-height: 1.1 !important;
+    .min-h-\[70vh\] h1 {
+      margin-bottom: 0.25rem !important;
+      line-height: 1 !important;
     }
     
-    .min-h-\[80vh\] h2 {
-      font-size: 1.1rem !important;
-      margin-bottom: 1.5rem !important;
+    .min-h-\[70vh\] h2 {
+      margin-bottom: 1rem !important;
     }
     
     /* MINIMAL SPACE - Hero to Description */
-    .pt-2.pb-6.-mt-16 {
-      margin-top: -3rem !important;
+    .pt-2.pb-6.-mt-20 {
+      margin-top: -3.5rem !important;
       padding-top: 0 !important;
     }
     
@@ -494,8 +491,8 @@ import Main from '../layouts/Main.astro';
   
   /* Desktop optimizations */
   @media (min-width: 769px) {
-    .pt-2.pb-6.-mt-16 {
-      margin-top: -6rem !important;
+    .pt-2.pb-6.-mt-20 {
+      margin-top: -7rem !important;
     }
   }
 </style>
