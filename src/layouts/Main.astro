@@ -1,7 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import Chatbot from '../components/Chatbot.astro';  // ADD THIS
+import Chatbot from '../components/Chatbot.astro';
 import '../styles/global.css';
 ---
 
@@ -15,6 +15,14 @@ import '../styles/global.css';
   
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <!-- FAVICONS - SIMPLE ICO ONLY -->
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  
+  <!-- Open Graph for Google/Social -->
+  <meta property="og:image" content="/images/elite-logo.png">
+  <meta property="og:image:alt" content="Elite Health Club Logo">
 </head>
 <body class="min-h-screen bg-black">
   <Header />
@@ -24,6 +32,6 @@ import '../styles/global.css';
   </main>
   
   <Footer />
-  <Chatbot />  <!-- ADD THIS -->
+  <Chatbot />
 </body>
 </html>
